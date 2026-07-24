@@ -3,25 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Regional Signal — Monthly Brief Archive</title>
-<meta name="description" content="Every monthly AI-in-higher-education brief from the LA-25 LARC and LBCC AI Literacy &amp; Innovation Project, collected in one place.">
+<!-- EDIT: title, description, session number, and date -->
+<title>Session 00 · Session Title — Monthly Regional Convenings</title>
+<meta name="description" content="Recording, Regional Signal brief, demonstrations, and featured faculty work from Session 00 of the LA-25 LARC and LBCC AI Literacy &amp; Innovation Project.">
+<meta property="og:title" content="Session 00 · Session Title — Monthly Regional Convenings">
+<meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy-900:#001A33; --navy:#003366; --navy-100:#C8D9EC;
-    --gold:#FFB81C; --crimson:#C8102E;
-    --cream:#F8F4ED; --paper:#FFFFFF;
+    --navy-900:#001A33; --navy-800:#002347; --navy:#003366; --navy-100:#C8D9EC;
+    --gold:#FFB81C; --gold-dim:#E0A314; --crimson:#C8102E;
+    --t1:#003366; --t2:#0F6E56; --t3:#854F0B; --t4:#7A2855;
+    --cream:#F8F4ED; --cream-2:#F2EBDD; --paper:#FFFFFF;
     --ink:#14171A; --ink-soft:#3D434A; --ink-mute:#6B7280; --rule:#E5DECE;
     --serif:'Fraunces','Source Serif Pro',Georgia,serif;
     --sans:'Manrope','Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;
   }
   *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
   body { font-family:var(--sans); color:var(--ink); background:var(--cream); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  img { max-width:100%; display:block; }
   a { color:var(--navy); text-decoration:none; transition:color .2s ease; }
   a:hover { color:var(--crimson); }
-  .container { max-width:820px; margin:0 auto; padding:0 1.5rem; }
+  .container { max-width:900px; margin:0 auto; padding:0 1.5rem; }
 
   .skip-link { position:absolute; left:-9999px; top:0; background:var(--navy); color:#fff; padding:.75rem 1.25rem; z-index:100; font-weight:700; }
   .skip-link:focus { left:0; color:#fff; }
@@ -32,26 +38,46 @@
   .brand-sub { display:block; font-size:.8rem; font-weight:600; color:var(--ink-soft); margin-top:.1rem; }
   .back-link { font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--navy); }
 
-  header.hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--rule); }
-  .eyebrow { font-size:.72rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--crimson); margin-bottom:1rem; }
-  h1 { font-family:var(--serif); font-weight:500; font-size:clamp(2.2rem,5.5vw,3.6rem); line-height:1.05; letter-spacing:-.02em; color:var(--navy-900); margin-bottom:1rem; }
-  h1 em { font-style:italic; font-weight:400; color:var(--navy); }
-  .lede { font-size:1.05rem; color:var(--ink-soft); max-width:60ch; }
+  .s-hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--rule); }
+  .s-eyebrow { font-size:.72rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--crimson); margin-bottom:1rem; }
+  .s-hero h1 { font-family:var(--serif); font-weight:500; font-size:clamp(2rem,5vw,3.4rem); line-height:1.05; letter-spacing:-.02em; color:var(--navy-900); margin-bottom:1rem; }
+  .s-focus { font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--navy); margin-bottom:1.75rem; }
+  .s-meta { display:flex; flex-wrap:wrap; gap:1.25rem 2.5rem; }
+  .s-meta div { border-left:3px solid var(--gold); padding-left:.9rem; }
+  .s-meta-label { font-size:.66rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-mute); }
+  .s-meta-value { font-size:.95rem; font-weight:700; color:var(--navy-900); }
 
-  .list-section { padding:3rem 0; }
-  .brief-list { list-style:none; display:grid; gap:.75rem; }
-  .brief { background:var(--paper); border:1px solid var(--rule); border-left:4px solid var(--gold); border-radius:6px; padding:1.25rem 1.4rem; }
-  .brief-date { font-size:.68rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:.35rem; }
-  .brief h2 { font-family:var(--serif); font-weight:500; font-size:1.15rem; color:var(--navy-900); margin-bottom:.35rem; letter-spacing:-.01em; }
-  .brief p { font-size:.9rem; color:var(--ink-soft); margin-bottom:.75rem; }
-  .brief a.read { font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+  .section { padding:3rem 0; border-bottom:1px solid var(--rule); }
+  .section:last-of-type { border-bottom:none; }
+  .section h2 { font-family:var(--serif); font-weight:500; font-size:clamp(1.5rem,3vw,2.1rem); color:var(--navy-900); margin-bottom:1.25rem; letter-spacing:-.015em; }
+  .section p { color:var(--ink-soft); margin-bottom:1rem; }
 
-  .empty {
-    background:var(--paper); border:1px dashed var(--rule); border-radius:6px;
-    padding:2.5rem 1.5rem; text-align:center; color:var(--ink-mute); font-size:.95rem;
-  }
+  .video-frame { position:relative; padding-bottom:56.25%; height:0; background:var(--navy-900); border-radius:6px; overflow:hidden; margin-bottom:1rem; }
+  .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .video-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--navy-100); font-size:.85rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; text-align:center; padding:1rem; }
 
-  footer { background:var(--navy-900); color:var(--navy-100); padding:2.25rem 0 1.75rem; font-size:.82rem; margin-top:2rem; }
+  .seg-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.85rem; }
+  .seg { background:var(--paper); border:1px solid var(--rule); border-top:3px solid var(--navy); border-radius:4px; padding:1rem 1.1rem; }
+  .seg-label { font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--crimson); margin-bottom:.35rem; }
+  .seg p { font-size:.88rem; margin:0; line-height:1.55; }
+
+  .artifact-list { list-style:none; display:grid; gap:.75rem; }
+  .artifact { background:var(--paper); border:1px solid var(--rule); border-radius:6px; padding:1.1rem 1.25rem; }
+  .artifact-track { font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.3rem; }
+  .artifact-track.t1 { color:var(--t1); } .artifact-track.t2 { color:var(--t2); }
+  .artifact-track.t3 { color:var(--t3); } .artifact-track.t4 { color:var(--t4); }
+  .artifact h3 { font-family:var(--serif); font-weight:500; font-size:1.05rem; color:var(--navy-900); margin-bottom:.2rem; }
+  .artifact .by { font-size:.82rem; color:var(--ink-mute); }
+  .artifact p { font-size:.88rem; margin:.5rem 0 0; }
+
+  .btn { display:inline-block; padding:.7rem 1.4rem; border-radius:4px; font-weight:800; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; background:var(--navy); color:#fff; }
+  .btn:hover { background:var(--crimson); color:#fff; }
+  .btn-row { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+
+  .pager { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; padding:2rem 0; }
+  .pager a { font-size:.8rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+
+  footer { background:var(--navy-900); color:var(--navy-100); padding:2.25rem 0 1.75rem; font-size:.82rem; }
   footer strong { display:block; color:#fff; font-family:var(--serif); font-weight:500; font-size:1rem; margin-bottom:.3rem; }
   footer a { color:var(--gold); font-weight:700; }
   footer a:hover { color:#fff; }
@@ -68,43 +94,108 @@
       <span class="brand-title">Monthly Regional Convenings</span>
       <span class="brand-sub">AI Literacy and Innovation Project</span>
     </a>
-    <a class="back-link" href="../index.html">&larr; Convenings Hub</a>
+    <a class="back-link" href="../index.html#sessions">&larr; All Sessions</a>
   </div>
 </nav>
 
-<header class="hero" id="main-content">
+<header class="s-hero" id="main-content">
   <div class="container">
-    <div class="eyebrow">Monthly Brief</div>
-    <h1>The Regional <em>Signal</em></h1>
-    <p class="lede">
-      One brief a month, written for community college faculty in Los Angeles County:
-      what changed in AI and higher education, what it means for your classroom, and
-      what is worth your attention before the next convening.
-    </p>
+    <!-- EDIT: session number and title -->
+    <div class="s-eyebrow">Session 00 &middot; Month Day, Year</div>
+    <h1>Session Title Goes Here</h1>
+    <p class="s-focus">The guiding question this session answered.</p>
+    <div class="s-meta">
+      <div>
+        <div class="s-meta-label">Date</div>
+        <div class="s-meta-value">Friday, Month 00, 2026</div>
+      </div>
+      <div>
+        <div class="s-meta-label">Time</div>
+        <div class="s-meta-value">1:00 &ndash; 2:30 PM PT</div>
+      </div>
+      <div>
+        <div class="s-meta-label">Attendance</div>
+        <div class="s-meta-value">00 faculty &middot; 00 colleges</div>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="list-section">
+<section class="section">
   <div class="container">
-    <!-- When the first brief is published, delete the .empty div below and
-         uncomment the <ul> pattern. Add newest briefs at the top. -->
-
-    <div class="empty">
-      The first edition arrives after Session 1 on August 28, 2026.
+    <h2>Watch the recording</h2>
+    <div class="video-frame">
+      <!-- EDIT: replace the placeholder div with an iframe once the recording is posted.
+           Example:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Session 00 recording"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                   allowfullscreen></iframe>
+      -->
+      <div class="video-placeholder">Recording will be posted within one week of the session</div>
     </div>
-
-    <!--
-    <ul class="brief-list">
-      <li class="brief">
-        <div class="brief-date">Issue 01 &middot; September 2026</div>
-        <h2>Brief headline goes here</h2>
-        <p>Two sentences on what this issue covers and why it matters this month.</p>
-        <a class="read" href="2026-09-signal.html">Read the brief &rarr;</a>
-      </li>
-    </ul>
-    -->
+    <p>Main-room segments only. Breakout rooms are not recorded, so faculty can speak freely.</p>
   </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <h2>What happened</h2>
+    <div class="seg-grid">
+      <div class="seg">
+        <div class="seg-label">Proof of Concept</div>
+        <p>EDIT: what was demonstrated live, and who demonstrated it.</p>
+      </div>
+      <div class="seg">
+        <div class="seg-label">Campus Voices</div>
+        <p>EDIT: which subregion presented, and the faculty who spoke.</p>
+      </div>
+      <div class="seg">
+        <div class="seg-label">Breakout Rooms</div>
+        <p>EDIT: what each track worked on, and what came out of it.</p>
+      </div>
+      <div class="seg">
+        <div class="seg-label">Spotlight</div>
+        <p>EDIT: whose work was featured, and why it was chosen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The Regional Signal</h2>
+    <p>EDIT: two or three sentences summarizing this month&rsquo;s brief &mdash; the AI-in-higher-education developments that matter for LA County faculty.</p>
+    <div class="btn-row">
+      <!-- EDIT: point to the brief page or PDF -->
+      <a class="btn" href="../briefs/">Read the full brief &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Featured faculty work</h2>
+    <p>Artifacts shared by participants during or after this session.</p>
+    <ul class="artifact-list">
+      <li class="artifact">
+        <div class="artifact-track t1">Track 01 &middot; Research &amp; Professional Development</div>
+        <h3>EDIT: Artifact title</h3>
+        <div class="by">Faculty Name &middot; College Name</div>
+        <p>EDIT: one or two sentences on what it is and why it is worth looking at.</p>
+      </li>
+      <!-- Duplicate the <li> above for each additional artifact.
+           Change the track class to t1 / t2 / t3 / t4 to match. -->
+    </ul>
+  </div>
+</section>
+
+<div class="container">
+  <div class="pager">
+    <!-- EDIT: adjust or remove these links -->
+    <a href="session-00.html">&larr; Previous session</a>
+    <a href="session-00.html">Next session &rarr;</a>
+  </div>
+</div>
 
 <footer>
   <div class="container">
