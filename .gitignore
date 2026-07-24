@@ -1,0 +1,21 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Working files that should not ship to the live site
+_drafts/
+_source-draft.html
+*.bak
+
+# Local server byproducts
+__pycache__/
+*.pyc
+.venv/
+node_modules/
