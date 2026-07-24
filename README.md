@@ -112,7 +112,7 @@ Pages are built to WCAG 2.1 AA: visible keyboard focus, a skip link, `aria-expan
 |---|---|---|
 | Project Lead | Koby Moridzadeh | kmoridzadeh@lbcc.edu |
 | Faculty Lead | Vincent Calip | vcalip@lbcc.edu |
-| Project Manager | Ruth Amanuel | ramanuel@lbcc.edu |
+| Program Manager | Ruth Amanuel | ramanuel@lbcc.edu |
 
 ---
 
