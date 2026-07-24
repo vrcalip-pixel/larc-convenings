@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questions &amp; Inquiries — Monthly Regional Convenings</title>
+<meta name="description" content="Ask the LA-25 LARC and LBCC AI Literacy &amp; Innovation Project team about the monthly regional convenings, presenting at a session, or partnering across regions.">
+<meta property="og:title" content="Questions &amp; Inquiries — Monthly Regional Convenings">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-900:#001A33; --navy-800:#002347; --navy:#003366; --navy-100:#C8D9EC;
+    --gold:#FFB81C; --gold-dim:#E0A314; --crimson:#C8102E;
+    --t1:#003366; --t2:#0F6E56; --t3:#854F0B; --t4:#7A2855;
+    --cream:#F8F4ED; --cream-2:#F2EBDD; --paper:#FFFFFF;
+    --ink:#14171A; --ink-soft:#3D434A; --ink-mute:#6B7280; --rule:#E5DECE;
+    --serif:'Fraunces','Source Serif Pro',Georgia,serif;
+    --sans:'Manrope','Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--sans); color:var(--ink); background:var(--cream); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  img { max-width:100%; display:block; }
+  a { color:var(--navy); text-decoration:none; transition:color .2s ease; }
+  a:hover { color:var(--crimson); }
+  .container { max-width:1140px; margin:0 auto; padding:0 1.5rem; }
+
+  .skip-link { position:absolute; left:-9999px; top:0; background:var(--navy); color:#fff; padding:.75rem 1.25rem; z-index:100; font-weight:700; border-radius:0 0 6px 0; }
+  .skip-link:focus { left:0; color:#fff; }
+
+  /* ===== Top nav (matches hub) ===== */
+  .topnav { position:sticky; top:0; z-index:50; background:rgba(248,244,237,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--rule); }
+  .topnav .container { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-top:.7rem; padding-bottom:.7rem; }
+  .topnav-brand { line-height:1.3; }
+  .brand-title { display:block; font-family:var(--serif); font-weight:600; font-size:1.02rem; color:var(--navy-900); letter-spacing:-.01em; }
+  .brand-sub { display:block; font-size:.8rem; font-weight:600; color:var(--ink-soft); margin-top:.1rem; }
+  .topnav-links { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; }
+  .topnav-links a { font-size:.82rem; font-weight:600; color:var(--ink-soft); }
+  .topnav-links a:hover { color:var(--crimson); }
+  .topnav-links a.nav-cta { background:var(--navy); color:#fff; border-radius:999px; padding:.45rem 1.3rem; transition:background .2s ease; }
+  .topnav-links a.nav-cta:hover { background:var(--navy-800); color:#fff; }
+
+  /* ===== Hero ===== */
+  .hero { padding:3.5rem 0 2.25rem; border-bottom:1px solid var(--rule); }
+  .hero-eyebrow { font-size:.72rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--crimson); margin-bottom:1rem; }
+  .hero h1 { font-family:var(--serif); font-weight:500; font-size:clamp(2.2rem,5.5vw,3.8rem); line-height:1.04; letter-spacing:-.02em; color:var(--navy-900); margin-bottom:1rem; }
+  .hero h1 em { font-style:italic; font-weight:400; color:var(--navy); }
+  .hero-lede { font-size:1.05rem; color:var(--ink-soft); max-width:58ch; }
+
+  /* ===== Layout ===== */
+  .work { padding:3rem 0 4rem; }
+  .grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:2.5rem; align-items:start; }
+
+  /* ===== Form card ===== */
+  .form-card { position:relative; background:var(--paper); border:1px solid var(--rule); border-radius:6px; padding:2rem 2rem 1.75rem; }
+  .form-card::before {
+    content:""; position:absolute; top:0; left:2rem; right:2rem; height:3px;
+    background:linear-gradient(90deg,
+      var(--t1) 0%, var(--t1) 25%, var(--t2) 25%, var(--t2) 50%,
+      var(--t3) 50%, var(--t3) 75%, var(--t4) 75%, var(--t4) 100%);
+  }
+  .field { margin-bottom:1.35rem; }
+  .field label {
+    display:block; font-size:.7rem; font-weight:800; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--navy-900); margin-bottom:.4rem;
+  }
+  .field label .opt { color:var(--ink-mute); font-weight:600; letter-spacing:.06em; }
+  .field .hint { font-size:.82rem; color:var(--ink-mute); margin:-.15rem 0 .5rem; }
+  .field input, .field select, .field textarea {
+    width:100%; font-family:var(--sans); font-size:.95rem; color:var(--ink);
+    background:var(--cream); border:1px solid var(--rule); border-radius:4px;
+    padding:.75rem .9rem; transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .field textarea { min-height:9.5rem; resize:vertical; line-height:1.6; }
+  .field select { appearance:none; cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);
+    background-position:calc(100% - 1.15rem) 1.25rem, calc(100% - .8rem) 1.25rem;
+    background-size:6px 6px, 6px 6px; background-repeat:no-repeat; padding-right:2.5rem; }
+  .field input:hover, .field select:hover, .field textarea:hover { border-color:#CFC5AE; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline:none; background:var(--paper); border-color:var(--navy);
+    box-shadow:0 0 0 3px rgba(0,51,102,.14);
+  }
+  .field.invalid input, .field.invalid select, .field.invalid textarea { border-color:var(--crimson); }
+  .field .err { display:none; font-size:.8rem; font-weight:700; color:var(--crimson); margin-top:.35rem; }
+  .field.invalid .err { display:block; }
+
+  /* honeypot — hidden from people, visible to bots */
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+  .actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; padding-top:.35rem; }
+  .btn {
+    display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.9rem; border-radius:4px;
+    font-family:var(--sans); font-weight:800; font-size:.82rem; letter-spacing:.08em;
+    text-transform:uppercase; border:2px solid transparent; cursor:pointer;
+    background:var(--navy); color:#fff; box-shadow:0 10px 24px -12px rgba(0,51,102,.5);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn:hover:not(:disabled) { background:var(--navy-800); transform:translateY(-2px); box-shadow:0 16px 30px -14px rgba(0,51,102,.55); }
+  .btn:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  .btn:disabled { background:var(--ink-mute); cursor:progress; box-shadow:none; transform:none; }
+  .actions .req-note { font-size:.8rem; color:var(--ink-mute); }
+
+  /* status messages */
+  .status { margin-top:1.25rem; font-size:.9rem; line-height:1.6; border-radius:4px; padding:1rem 1.15rem; display:none; }
+  .status.show { display:block; }
+  .status.err { background:#FBEAEC; border-left:4px solid var(--crimson); color:#7A0A1C; }
+  .status.err a { color:#7A0A1C; text-decoration:underline; }
+
+  /* success panel replaces the form */
+  .done { display:none; text-align:center; padding:2.5rem 1.5rem; }
+  .done.show { display:block; }
+  .done .mark {
+    width:56px; height:56px; margin:0 auto 1.25rem; border-radius:50%;
+    background:#E4F0EB; color:var(--t2); font-size:1.6rem; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .done h2 { font-family:var(--serif); font-weight:500; font-size:1.6rem; color:var(--navy-900); margin-bottom:.6rem; letter-spacing:-.01em; }
+  .done p { font-size:.95rem; color:var(--ink-soft); max-width:44ch; margin:0 auto 1.5rem; }
+  .done a.back { font-size:.75rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+
+  /* ===== Sidebar ===== */
+  .side-card { background:var(--paper); border:1px solid var(--rule); border-radius:6px; padding:1.5rem 1.5rem 1.35rem; margin-bottom:1.25rem; }
+  .side-card h2 { font-family:var(--serif); font-weight:500; font-size:1.2rem; color:var(--navy-900); margin-bottom:.4rem; letter-spacing:-.01em; }
+  .side-card p { font-size:.88rem; color:var(--ink-soft); }
+  .routing { list-style:none; margin-top:1rem; display:grid; gap:.9rem; }
+  .routing li { border-left:3px solid var(--gold); padding-left:.9rem; }
+  .routing .who { font-size:.95rem; font-weight:700; color:var(--navy-900); line-height:1.35; }
+  .routing .role { font-size:.78rem; font-weight:600; color:var(--ink-mute); line-height:1.4; margin-bottom:.35rem; }
+  .routing .what { font-size:.82rem; color:var(--ink-soft); line-height:1.5; }
+  .side-note { background:var(--cream-2); border-radius:6px; padding:1.25rem 1.4rem; font-size:.85rem; color:var(--ink-soft); line-height:1.6; }
+  .side-note strong { color:var(--navy-900); }
+
+  /* ===== Footer ===== */
+  footer { background:var(--navy-900); color:var(--navy-100); padding:2.25rem 0 1.75rem; font-size:.82rem; }
+  footer strong { display:block; color:#fff; font-family:var(--serif); font-weight:500; font-size:1rem; margin-bottom:.3rem; }
+  footer a { color:var(--gold); font-weight:700; }
+  footer a:hover { color:#fff; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.12); margin-top:1.25rem; padding-top:1rem; font-size:.72rem; color:var(--ink-mute); }
+
+  @media (max-width:860px) {
+    .grid { grid-template-columns:1fr; gap:1.75rem; }
+    .topnav-links { display:none; }
+    .form-card { padding:1.6rem 1.25rem 1.4rem; }
+    .form-card::before { left:1.25rem; right:1.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition:none !important; }
+    .btn:hover:not(:disabled) { transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="topnav">
+  <div class="container">
+    <a class="topnav-brand" href="index.html" aria-label="Monthly Regional Convenings home">
+      <span class="brand-title">AI Literacy and Innovation Project</span>
+      <span class="brand-sub">Fueled by LARC &middot; Led by LBCC</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html#sessions">Sessions</a>
+      <a href="index.html#tracks">Tracks</a>
+      <a href="index.html#resources">Resources</a>
+      <a class="nav-cta" href="index.html">&larr; Back to Hub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="main-content">
+  <div class="container">
+    <div class="hero-eyebrow">Connect</div>
+    <h1>Questions &amp; <em>Inquiries</em></h1>
+    <p class="hero-lede">
+      Ask about a convening, your track, presenting at a session, or working
+      together across regions. Your message goes straight to the person best
+      placed to answer it, and you can expect a reply within two business days.
+    </p>
+  </div>
+</header>
+
+<main class="work">
+  <div class="container">
+    <div class="grid">
+
+      <!-- ============================ FORM ============================ -->
+      <div>
+        <div class="form-card">
+          <form id="contact-form" novalidate>
+
+            <div class="field" id="f-name">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="e-name">
+              <div class="err" id="e-name">Please enter your name.</div>
+            </div>
+
+            <div class="field" id="f-email">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="e-email">
+              <div class="err" id="e-email">Please enter a valid email address so we can reply.</div>
+            </div>
+
+            <div class="field" id="f-college">
+              <label for="college">Your college <span class="opt">(optional)</span></label>
+              <select id="college" name="college">
+                <option value="">Choose one&hellip;</option>
+                <option>Cerritos College</option>
+                <option>Citrus College</option>
+                <option>Compton College</option>
+                <option>East Los Angeles College</option>
+                <option>El Camino College</option>
+                <option>Glendale Community College</option>
+                <option>Long Beach City College</option>
+                <option>Los Angeles City College</option>
+                <option>Los Angeles Harbor College</option>
+                <option>Los Angeles Mission College</option>
+                <option>Los Angeles Pierce College</option>
+                <option>Los Angeles Southwest College</option>
+                <option>Los Angeles Trade-Technical College</option>
+                <option>Los Angeles Valley College</option>
+                <option>Mt. San Antonio College</option>
+                <option>Pasadena City College</option>
+                <option>Rio Hondo College</option>
+                <option>Santa Monica College</option>
+                <option>West Los Angeles College</option>
+                <option>Other &mdash; not listed above</option>
+              </select>
+            </div>
+
+            <div class="field" id="f-topic">
+              <label for="topic">What is your question about?</label>
+              <select id="topic" name="topic" required aria-describedby="e-topic">
+                <option value="">Choose one&hellip;</option>
+                <option>Logistics, stipends, or attendance</option>
+                <option>Canvas access or technical trouble</option>
+                <option>My track or a program deliverable</option>
+                <option>Presenting at a convening</option>
+                <option>Partnership or press inquiry</option>
+                <option>Something else</option>
+              </select>
+              <div class="err" id="e-topic">Please choose a topic.</div>
+            </div>
+
+            <div class="field" id="f-message">
+              <label for="message">Your question or request</label>
+              <p class="hint">Include your track if your question is track-specific.</p>
+              <textarea id="message" name="message" required aria-describedby="e-message"></textarea>
+              <div class="err" id="e-message">Please tell us how we can help.</div>
+            </div>
+
+            <!-- Bots fill this in; people never see it. -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn" id="submit-btn">Send message</button>
+              <span class="req-note">All fields required except college.</span>
+            </div>
+          </form>
+
+          <div class="status err" id="status" role="alert" aria-live="assertive"></div>
+
+          <div class="done" id="done" role="status" aria-live="polite">
+            <div class="mark" aria-hidden="true">&check;</div>
+            <h2>Message sent</h2>
+            <p>Thank you. Your message reached the convenings team, and someone will reply within two business days.</p>
+            <a class="back" href="index.html">&larr; Back to the convenings hub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================== SIDEBAR ========================== -->
+      <aside>
+        <div class="side-card">
+          <h2>Who you&rsquo;ll hear from</h2>
+          <p>Your topic decides who picks it up. Everyone else on the team is copied.</p>
+          <ul class="routing">
+            <li>
+              <div class="who">Koby Moridzadeh</div>
+              <div class="role">Dean of Career &amp; Technical Education, LBCC</div>
+              <div class="what">Partnerships, press, and program-level inquiries</div>
+            </li>
+            <li>
+              <div class="who">Ruth Amanuel</div>
+              <div class="role">Program Manager, AI Literacy &amp; Innovation Project</div>
+              <div class="what">Logistics, stipends, attendance, Canvas access</div>
+            </li>
+            <li>
+              <div class="who">Dr. Vincent Calip</div>
+              <div class="role">Faculty Lead Coordinator, LBCC</div>
+              <div class="what">Track questions, deliverables, presenting at a convening</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="side-note">
+          <strong>Program questions only.</strong> Please keep student-specific
+          matters &mdash; grades, accommodations, or anything identifiable &mdash;
+          out of this form and take them through your college&rsquo;s own channels.
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>LA-25 LARC and LBCC AI Literacy &amp; Innovation Project</strong>
+    Long Beach City College, Lead Institution &middot; In partnership with the
+    <a href="https://losangelesrc.org/" target="_blank" rel="noopener">Los Angeles Regional Consortium</a>
+    <div class="footer-bottom">
+      &copy; 2026 Long Beach City College. Funded by the California Community Colleges Strong Workforce Program, Round 10.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   ENDPOINT — EDIT THIS LINE ONLY
+   Paste the Apps Script web app URL here. It ends in /exec.
+   Setup steps: docs/CONTACT-FORM-SETUP.md
+   ===================================================================== */
+const ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+/* =================================================================== */
+
+const form   = document.getElementById("contact-form");
+const btn    = document.getElementById("submit-btn");
+const status = document.getElementById("status");
+const done   = document.getElementById("done");
+
+const FIELDS = [
+  { id: "name",    wrap: "f-name",    test: v => v.trim().length > 0 },
+  { id: "email",   wrap: "f-email",   test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+  { id: "topic",   wrap: "f-topic",   test: v => v !== "" },
+  { id: "message", wrap: "f-message", test: v => v.trim().length > 0 }
+];
+
+function validate() {
+  let firstBad = null;
+  FIELDS.forEach(f => {
+    const el = document.getElementById(f.id);
+    const ok = f.test(el.value);
+    document.getElementById(f.wrap).classList.toggle("invalid", !ok);
+    el.setAttribute("aria-invalid", ok ? "false" : "true");
+    if (!ok && !firstBad) firstBad = el;
+  });
+  if (firstBad) firstBad.focus();
+  return !firstBad;
+}
+
+// Clear a field's error as soon as it becomes valid
+FIELDS.forEach(f => {
+  const el = document.getElementById(f.id);
+  el.addEventListener("input", () => {
+    if (f.test(el.value)) {
+      document.getElementById(f.wrap).classList.remove("invalid");
+      el.setAttribute("aria-invalid", "false");
+    }
+  });
+});
+
+function showError(html) {
+  status.innerHTML = html;
+  status.classList.add("show");
+}
+
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  status.classList.remove("show");
+
+  if (!validate()) return;
+
+  if (!ENDPOINT || ENDPOINT.indexOf("PASTE_") === 0) {
+    showError('This form is not connected yet. Please email ' +
+      '<a href="mailto:vcalip@lbcc.edu">vcalip@lbcc.edu</a> in the meantime.');
+    return;
+  }
+
+  btn.disabled = true;
+  const original = btn.textContent;
+  btn.textContent = "Sending\u2026";
+
+  const payload = new URLSearchParams({
+    name:    document.getElementById("name").value.trim(),
+    email:   document.getElementById("email").value.trim(),
+    college: document.getElementById("college").value.trim(),
+    topic:   document.getElementById("topic").value,
+    message: document.getElementById("message").value.trim(),
+    website: document.getElementById("website").value,   // honeypot
+    page:    location.href
+  });
+
+  try {
+    const res  = await fetch(ENDPOINT, { method: "POST", body: payload });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "Server rejected the submission");
+
+    form.style.display = "none";
+    done.classList.add("show");
+    done.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = original;
+    showError(
+      'Something went wrong sending your message. Please try again, or email ' +
+      '<a href="mailto:vcalip@lbcc.edu">vcalip@lbcc.edu</a> directly.'
+    );
+  }
+});
+</script>
+
+</body>
+</html>
