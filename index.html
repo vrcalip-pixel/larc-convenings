@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Regional Convenings — LA-25 LARC and LBCC AI Literacy &amp; Innovation Project</title>
+<meta name="description" content="The living archive of the LA-25 LARC and LBCC AI Literacy &amp; Innovation Project's monthly regional convenings — schedule, recordings, briefs, and faculty-created artifacts across Los Angeles County's community colleges.">
+<meta property="og:title" content="Monthly Regional Convenings — LA-25 LARC and LBCC AI Literacy &amp; Innovation Project">
+<meta property="og:description" content="Second Fridays · 10:00 – 11:30 AM PT · Ten sessions, one progressive arc.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-900:  #001A33;
+    --navy-800:  #002347;
+    --navy:      #003366;
+    --navy-600:  #0A4D80;
+    --navy-100:  #C8D9EC;
+
+    --gold:      #FFB81C;
+    --gold-dim:  #E0A314;
+    --crimson:   #C8102E;
+
+    --t1: #003366;  /* Track 1 - Navy */
+    --t2: #0F6E56;  /* Track 2 - Green */
+    --t3: #854F0B;  /* Track 3 - Amber */
+    --t4: #7A2855;  /* Track 4 - Plum (updated from deep teal) */
+
+    --cream:     #F8F4ED;
+    --cream-2:   #F2EBDD;
+    --paper:     #FFFFFF;
+    --ink:       #14171A;
+    --ink-soft:  #3D434A;
+    --ink-mute:  #6B7280;
+    --rule:      #E5DECE;
+
+    --serif: 'Fraunces', 'Source Serif Pro', Georgia, serif;
+    --sans:  'Manrope', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--navy); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: var(--crimson); }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--navy); color: #fff; padding: 0.75rem 1.25rem;
+    z-index: 100; font-weight: 700; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; color: #fff; }
+
+  /* Announcement banner — remove `hidden` on the div below to show */
+  .announcement {
+    background: var(--gold); color: var(--navy-900);
+    text-align: center; padding: 0.6rem 1.25rem;
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .announcement strong {
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 0.72rem; margin-right: 0.6rem;
+  }
+
+  /* ===== Sticky top nav ===== */
+  .topnav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(248, 244, 237, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .topnav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding-top: 0.7rem; padding-bottom: 0.7rem;
+  }
+  .topnav-brand { line-height: 1.3; }
+  .topnav-brand .brand-title {
+    display: block; font-family: var(--serif); font-weight: 600;
+    font-size: 1.02rem; color: var(--navy-900); letter-spacing: -0.01em;
+  }
+  .topnav-brand .brand-sub {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0; text-transform: none; color: var(--ink-soft);
+    margin-top: 0.1rem;
+  }
+  .topnav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+  .topnav-links a {
+    font-size: 0.82rem; font-weight: 600; color: var(--ink-soft);
+    letter-spacing: 0; text-transform: none;
+  }
+  .topnav-links a:hover { color: var(--crimson); }
+  .topnav-links a.nav-cta {
+    background: var(--navy); color: #fff;
+    border-radius: 999px; padding: 0.45rem 1.3rem;
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0; text-transform: none;
+    transition: background 0.2s ease;
+  }
+  .topnav-links a.nav-cta:hover { background: var(--navy-800); color: #fff; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--rule); }
+  .hero-logos { display: flex; align-items: center; gap: 2rem; margin-bottom: 2.75rem; flex-wrap: wrap; }
+  .logo-divider { width: 1px; height: 52px; background: var(--rule); flex-shrink: 0; }
+  .hero-logo--ailit { height: 62px; width: auto; }
+  .hero-logo--larc { height: 54px; width: auto; }
+  .hero-logo--lbcc { height: 46px; width: auto; }
+  .hero-eyebrow {
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
+    line-height: 1.02; letter-spacing: -0.02em;
+    color: var(--navy-900); margin-bottom: 1.25rem; max-width: 15ch;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--navy); }
+  .hero h1 .accent { color: var(--crimson); font-style: italic; font-weight: 400; }
+  .hero-lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 640px; margin-bottom: 2.5rem; }
+
+  .hero-meta-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem 2.5rem; max-width: 940px; margin-bottom: 2.75rem;
+  }
+  .hero-meta { border-left: 3px solid var(--gold); padding-left: 1rem; }
+  .hero-meta-label {
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.3rem;
+  }
+  .hero-meta-value { font-size: 1rem; font-weight: 700; color: var(--navy-900); line-height: 1.45; }
+  .hero-meta-value .sub { display: block; font-size: 0.82rem; font-weight: 500; color: var(--ink-mute); }
+
+  /* ===== Countdown ===== */
+  .countdown-wrap {
+    position: relative; background: var(--paper);
+    border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.75rem 2rem 1.5rem; margin-bottom: 2.5rem;
+  }
+  .countdown-wrap::before {
+    content: ""; position: absolute; top: 0; left: 2rem; right: 2rem; height: 3px;
+    background: linear-gradient(90deg,
+      var(--t1) 0%, var(--t1) 25%,
+      var(--t2) 25%, var(--t2) 50%,
+      var(--t3) 50%, var(--t3) 75%,
+      var(--t4) 75%, var(--t4) 100%);
+  }
+  .countdown-label {
+    font-size: 0.72rem; font-weight: 800; color: var(--ink-mute);
+    letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.25rem;
+    text-align: center;
+  }
+  .countdown-label em { font-style: normal; color: var(--navy); }
+  .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .countdown-grid > div {
+    text-align: center; padding: 0.25rem 0.5rem;
+    border-left: 1px solid var(--rule);
+  }
+  .countdown-grid > div:first-child { border-left: none; }
+  .cd-num {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.4rem, 6.5vw, 4.4rem); line-height: 1;
+    color: var(--navy-900); letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    font-variation-settings: "opsz" 144;
+  }
+  .cd-word {
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-mute); margin-top: 0.4rem;
+  }
+  .countdown-live {
+    display: none; font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
+    color: var(--crimson); text-align: center;
+  }
+  .countdown-live .dot {
+    display: inline-block; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--crimson); margin-right: 0.6rem;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @media (prefers-reduced-motion: reduce) { .countdown-live .dot { animation: none; } }
+
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 1.7rem; border-radius: 4px;
+    font-weight: 800; font-size: 0.82rem; letter-spacing: 0.08em;
+    text-transform: uppercase; border: 2px solid transparent;
+    cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary { background: var(--navy); color: #fff; box-shadow: 0 10px 24px -12px rgba(0, 51, 102, 0.5); }
+  .btn-primary:hover { background: var(--navy-800); color: #fff; transform: translateY(-2px); box-shadow: 0 16px 30px -14px rgba(0, 51, 102, 0.55); }
+  .btn-ghost { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; }
+
+  /* ===== Stats strip ===== */
+  .stats-strip { border-bottom: 1px solid var(--rule); background: var(--cream-2); }
+  .stats-strip .container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem; padding-top: 1.75rem; padding-bottom: 1.75rem; text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif); font-weight: 600; font-size: 2.4rem;
+    line-height: 1; color: var(--navy-900); letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-mute); margin-top: 0.35rem;
+  }
+  .colleges-toggle { text-align: center; padding: 0 1.5rem 1.75rem; }
+  .colleges-toggle summary {
+    cursor: pointer; list-style: none; display: inline-block;
+    font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .colleges-toggle summary::-webkit-details-marker { display: none; }
+  .colleges-toggle summary:hover { color: var(--crimson); }
+  .colleges-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.35rem 2rem; max-width: 940px; margin: 1.25rem auto 0;
+    text-align: left; font-size: 0.88rem; color: var(--ink-soft);
+  }
+  .colleges-lead-note {
+    max-width: 940px; margin: 1rem auto 0; text-align: left;
+    font-size: 0.85rem; color: var(--ink-soft);
+    border-top: 1px solid var(--rule); padding-top: 0.85rem;
+  }
+  .colleges-lead-note strong { color: var(--navy-900); }
+
+  /* ===== Section base ===== */
+  .section { padding: 4.5rem 0; }
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-mute); margin-bottom: 1rem;
+  }
+  .section-eyebrow .num {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem;
+    color: var(--crimson); letter-spacing: 0;
+  }
+  .section h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.1;
+    letter-spacing: -0.015em; color: var(--navy-900); margin-bottom: 1rem;
+  }
+  .section h2 em { font-style: italic; font-weight: 400; color: var(--navy); }
+  .section-intro { font-size: 1.02rem; color: var(--ink-soft); max-width: 680px; margin-bottom: 2.5rem; }
+
+  /* ===== Series progress ===== */
+  .progress-wrap {
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.1rem 1.5rem; margin-bottom: 1.5rem;
+  }
+  .progress-label {
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-mute);
+  }
+  .progress-count {
+    font-family: var(--serif); font-weight: 600; font-size: 1.7rem;
+    line-height: 1; color: var(--navy-900); letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .progress-count .of { font-size: 0.95rem; color: var(--ink-mute); font-weight: 500; }
+  .progress-bar { display: flex; gap: 6px; flex: 1; min-width: 220px; }
+  .progress-seg {
+    height: 10px; flex: 1; border-radius: 3px;
+    background: var(--cream-2); border: 1px solid var(--rule);
+  }
+  .progress-seg.done { background: var(--navy); border-color: var(--navy); }
+  .progress-seg.next { background: var(--gold); border-color: var(--gold-dim); }
+
+  /* ===== Session ledger ===== */
+  .sessions-list {
+    background: var(--paper); border: 1px solid var(--rule);
+    border-radius: 6px; overflow: hidden;
+  }
+  .session-wrap { border-bottom: 1px solid var(--rule); }
+  .session-wrap:last-child { border-bottom: none; }
+  .session-wrap.is-next { background: #FDF8EC; box-shadow: inset 4px 0 0 var(--gold); }
+  .session-row {
+    display: grid; grid-template-columns: 64px 1fr auto;
+    gap: 1.25rem; padding: 1.4rem 1.75rem;
+    align-items: center; cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .session-row:hover { background: rgba(0, 51, 102, 0.035); }
+  .session-row:focus-visible { outline: 2px solid var(--navy); outline-offset: -2px; }
+  .row-chev {
+    font-size: 1.1rem; color: var(--ink-mute);
+    transition: transform 0.2s ease; display: inline-block;
+  }
+  .session-wrap.is-open .row-chev { transform: rotate(180deg); }
+  .session-row:hover .row-chev { color: var(--navy); }
+  .session-detail {
+    display: none;
+    padding: 0 1.75rem 1.6rem calc(64px + 1.25rem + 1.75rem);
+  }
+  .session-wrap.is-open .session-detail { display: block; }
+  .detail-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.85rem;
+  }
+  .detail-block {
+    background: var(--cream); border-radius: 4px;
+    padding: 0.9rem 1rem; border-top: 3px solid var(--rule);
+  }
+  .detail-label {
+    font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 0.35rem;
+  }
+  .detail-text { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.55; }
+  .detail-note {
+    background: var(--cream); border-radius: 4px; border-top: 3px solid var(--t3);
+    padding: 0.9rem 1rem; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55;
+  }
+  .detail-archive {
+    margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+  }
+  .detail-archive-note { font-size: 0.8rem; font-style: italic; color: var(--ink-mute); }
+  .btn-archive {
+    display: inline-block; padding: 0.5rem 1rem; border-radius: 4px;
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; background: var(--navy); color: #fff;
+  }
+  .btn-archive:hover { background: var(--crimson); color: #fff; }
+  .session-num {
+    font-family: var(--serif); font-weight: 600; font-size: 1.7rem;
+    color: var(--navy-100); line-height: 1; letter-spacing: -0.02em;
+  }
+  .session-row.is-next .session-num { color: var(--gold-dim); }
+  .session-row.is-done .session-num { color: var(--t2); }
+  .session-title {
+    font-family: var(--serif); font-weight: 500; font-size: 1.18rem;
+    line-height: 1.25; color: var(--navy-900); letter-spacing: -0.01em;
+  }
+  .session-focus { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.25rem; font-style: italic; }
+  .session-datewrap { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; align-items: center; }
+  .session-date {
+    font-size: 0.72rem; font-weight: 800; color: var(--navy);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .session-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.55rem; }
+  .s-tag {
+    display: inline-block; font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.18rem 0.6rem; border-radius: 3px;
+  }
+  .s-tag.next { background: var(--gold); color: var(--navy-900); }
+  .s-tag.upcoming { background: var(--cream-2); color: var(--ink-soft); }
+  .s-tag.done { background: #E4F0EB; color: var(--t2); }
+  .s-tag.optional { background: #F6EBDB; color: var(--t3); }
+  .session-action { text-align: right; }
+  .btn-session {
+    display: inline-block; padding: 0.6rem 1.15rem; border-radius: 4px;
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; white-space: nowrap;
+    background: var(--navy); color: #fff;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .btn-session:hover { background: var(--crimson); color: #fff; transform: translateY(-1px); }
+  .btn-session.disabled { background: var(--cream-2); color: var(--ink-mute); pointer-events: none; }
+
+  /* ===== Tracks ===== */
+  .tracks-section { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .tracks-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .track-card {
+    background: var(--cream); padding: 1.75rem 1.5rem 1.5rem;
+    border-radius: 4px; border-top: 4px solid;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex; flex-direction: column;
+  }
+  .track-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(0, 51, 102, 0.2); }
+  .track-card.t1 { border-top-color: var(--t1); }
+  .track-card.t2 { border-top-color: var(--t2); }
+  .track-card.t3 { border-top-color: var(--t3); }
+  .track-card.t4 { border-top-color: var(--t4); }
+  .track-num {
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 0.65rem;
+  }
+  .track-card.t1 .track-num { color: var(--t1); }
+  .track-card.t2 .track-num { color: var(--t2); }
+  .track-card.t3 .track-num { color: var(--t3); }
+  .track-card.t4 .track-num { color: var(--t4); }
+  .track-card h3 {
+    font-family: var(--serif); font-weight: 500; font-size: 1.25rem;
+    line-height: 1.2; color: var(--navy-900); margin-bottom: 0.75rem; letter-spacing: -0.01em;
+  }
+  .track-card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; flex-grow: 1; margin-bottom: 1.25rem; }
+  .track-exit {
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; padding-top: 0.85rem; border-top: 1px solid var(--rule);
+  }
+  .track-card.t1 .track-exit { color: var(--t1); }
+  .track-card.t2 .track-exit { color: var(--t2); }
+  .track-card.t3 .track-exit { color: var(--t3); }
+  .track-card.t4 .track-exit { color: var(--t4); }
+
+  /* ===== Resources ===== */
+  .resources-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .resource-card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.6rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .resource-card:hover {
+    transform: translateY(-3px); border-color: var(--gold);
+    box-shadow: 0 16px 36px -20px rgba(0, 51, 102, 0.25); color: inherit;
+  }
+  .card-eyebrow {
+    font-size: 0.66rem; font-weight: 800; color: var(--crimson);
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .resource-card h3 {
+    font-family: var(--serif); font-weight: 500; font-size: 1.2rem;
+    color: var(--navy-900); line-height: 1.25; letter-spacing: -0.01em;
+  }
+  .resource-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55; flex-grow: 1; }
+  .card-link {
+    font-size: 0.72rem; font-weight: 800; color: var(--navy);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem;
+  }
+  .resource-card:hover .card-link { color: var(--crimson); }
+
+  /* ===== Contact ===== */
+  .contact-section { background: var(--navy-900); color: var(--navy-100); }
+  .contact-section .section-eyebrow { color: var(--navy-100); }
+  .contact-section .section-eyebrow .num { color: var(--gold); }
+  .contact-section h2 { color: #fff; }
+  .contact-section h2 em { color: var(--gold); }
+  .contact-section .section-intro { color: var(--navy-100); }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 184, 28, 0.25);
+    border-radius: 6px; padding: 1.6rem 1.5rem;
+    display: flex; flex-direction: column;
+  }
+  .contact-role {
+    font-size: 0.66rem; font-weight: 800; color: var(--gold);
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .contact-name {
+    font-family: var(--serif); font-weight: 500; font-size: 1.3rem;
+    color: #fff; margin-bottom: 0.2rem; letter-spacing: -0.01em;
+  }
+  .contact-title { font-size: 0.82rem; color: var(--navy-100); margin-bottom: 0.9rem; flex-grow: 1; }
+  .contact-card a { color: var(--gold); font-weight: 700; font-size: 0.9rem; margin-top: auto; }
+  .contact-card a:hover { color: #fff; }
+  .contact-desc { font-size: 0.85rem; color: var(--navy-100); margin-top: 0.6rem; line-height: 1.5; }
+
+  /* ===== Footer ===== */
+  footer { background: var(--navy-900); color: var(--navy-100); border-top: 1px solid rgba(255,255,255,0.12); padding: 2.5rem 0 2rem; font-size: 0.85rem; }
+  footer .container { display: flex; flex-direction: column; gap: 1.25rem; }
+  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; align-items: flex-start; }
+  .footer-brand strong { display: block; color: #fff; font-family: var(--serif); font-weight: 500; font-size: 1.05rem; margin-bottom: 0.35rem; }
+  .footer-brand a {
+    color: #fff; text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+    text-underline-offset: 3px;
+  }
+  .footer-brand a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+  .footer-partners { font-size: 0.78rem; }
+  .footer-partners a { color: var(--gold); font-weight: 700; }
+  .footer-partners a:hover { color: #fff; }
+  .footer-emblem { height: 84px; width: auto; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.25rem;
+    font-size: 0.74rem; color: var(--ink-mute); line-height: 1.5;
+  }
+
+  .draft-banner {
+    background: var(--gold); color: var(--navy-900); text-align: center;
+    padding: 0.5rem 1rem; font-size: 0.72rem; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding: 3rem 0 2.5rem; }
+    .countdown-wrap { padding: 1.4rem 1rem 1.1rem; }
+    .countdown-wrap::before { left: 1rem; right: 1rem; }
+    .cd-num { font-size: clamp(1.7rem, 9vw, 3rem); }
+    .session-row { grid-template-columns: 48px 1fr; padding: 1.2rem 1.25rem; }
+    .session-action { grid-column: 2; text-align: left; margin-top: 0.6rem; }
+    .session-detail { padding: 0 1.25rem 1.4rem 1.25rem; }
+    .topnav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Draft notice — remove this div before public release -->
+<div class="draft-banner">Draft — for internal review · not for distribution</div>
+
+<!-- Announcement banner — delete `hidden` to show; edit the text to update -->
+<div class="announcement" hidden>
+  <strong>Update</strong> Edit this message — for example: The Zoom link for Session 1 has been emailed — check your inbox.
+</div>
+
+<!-- Sticky top navigation -->
+<nav class="topnav">
+  <div class="container">
+    <a class="topnav-brand" href="https://losangelesrc.org/projects/round-10-ai-literacy-innovation-project/" target="_blank" rel="noopener">
+      <span class="brand-title">AI Literacy and Innovation Project</span>
+      <span class="brand-sub">Fueled by LARC &middot; Led by LBCC</span>
+    </a>
+    <div class="topnav-links">
+      <a href="#sessions">Sessions</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#resources">Resources</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="main-content">
+  <div class="container">
+    <div class="hero-logos">
+      <a href="https://losangelesrc.org/" target="_blank" rel="noopener"><img class="hero-logo--larc" src="assets/larc-logo.png" alt="LARC — Los Angeles Regional Consortium"></a>
+      <span class="logo-divider" aria-hidden="true"></span>
+      <a href="https://www.lbcc.edu/" target="_blank" rel="noopener"><img class="hero-logo--lbcc" src="assets/lbcc-logo.png" alt="Long Beach City College"></a>
+      <span class="logo-divider" aria-hidden="true"></span>
+      <a href="https://losangelesrc.org/projects/round-10-ai-literacy-innovation-project/" target="_blank" rel="noopener"><img class="hero-logo--ailit" src="assets/ailit-logo.png" alt="AI Literacy &amp; Innovation Project"></a>
+    </div>
+
+    <div class="hero-eyebrow">LA-25 LARC and LBCC AI Literacy &amp; Innovation Project</div>
+    <h1>Monthly <em>Regional</em> Convenings <span class="accent">2026&ndash;27</span></h1>
+    <p class="hero-lede">
+      Ten sessions. One progressive arc. Faculty from community colleges across
+      Los Angeles County, building AI capacity together &mdash; and everything we
+      create along the way lives here: recordings, briefs, demonstrations, and
+      faculty work worth returning to.
+    </p>
+
+    <div class="hero-meta-grid">
+      <div class="hero-meta">
+        <div class="hero-meta-label">Next Session</div>
+        <div class="hero-meta-value" id="next-date">Loading&hellip;</div>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-label">Theme</div>
+        <div class="hero-meta-value" id="next-theme">&nbsp;</div>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-label">Cadence</div>
+        <div class="hero-meta-value">Second Fridays<span class="sub">10:00 &ndash; 11:30 AM PT</span></div>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-label">Where</div>
+        <div class="hero-meta-value">Online &middot; Zoom<span class="sub">Link shared via Canvas &amp; email</span></div>
+      </div>
+    </div>
+
+    <div class="countdown-wrap">
+      <div class="countdown-label" id="cd-label">Counting down to the next convening</div>
+      <div class="countdown-grid" id="countdown">
+        <div><div class="cd-num" id="cd-days">00</div><div class="cd-word">Days</div></div>
+        <div><div class="cd-num" id="cd-hours">00</div><div class="cd-word">Hours</div></div>
+        <div><div class="cd-num" id="cd-mins">00</div><div class="cd-word">Minutes</div></div>
+        <div><div class="cd-num" id="cd-secs">00</div><div class="cd-word">Seconds</div></div>
+      </div>
+      <div class="countdown-live" id="cd-live"><span class="dot"></span>Happening now &mdash; join us</div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#sessions" class="btn btn-primary">View All Sessions &rarr;</a>
+      <a href="https://larc.instructure.com/courses/25011~155" target="_blank" rel="noopener" class="btn btn-ghost">Canvas Course &nearr;</a>
+    </div>
+  </div>
+</header>
+
+<!-- Stats strip -->
+<div class="stats-strip">
+  <div class="container">
+    <div><div class="stat-num">18</div><div class="stat-label">LARC Colleges</div></div>
+    <div><div class="stat-num">4</div><div class="stat-label">Parallel Tracks</div></div>
+    <div><div class="stat-num">10</div><div class="stat-label">Monthly Sessions</div></div>
+    <div><div class="stat-num">1</div><div class="stat-label">LA Region</div></div>
+  </div>
+  <details class="colleges-toggle">
+    <summary>See the participating colleges &rsaquo;</summary>
+    <div class="colleges-list">
+      <div>Cerritos College</div>
+      <div>Citrus College</div>
+      <div>Compton College</div>
+      <div>East Los Angeles College</div>
+      <div>El Camino College</div>
+      <div>Glendale Community College</div>
+      <div>Los Angeles City College</div>
+      <div>Los Angeles Harbor College</div>
+      <div>Los Angeles Mission College</div>
+      <div>Los Angeles Pierce College</div>
+      <div>Los Angeles Southwest College</div>
+      <div>Los Angeles Trade-Technical College</div>
+      <div>Los Angeles Valley College</div>
+      <div>Mt. San Antonio College</div>
+      <div>Pasadena City College</div>
+      <div>Rio Hondo College</div>
+      <div>Santa Monica College</div>
+      <div>West Los Angeles College</div>
+    </div>
+    <p class="colleges-lead-note"><strong>Long Beach City College</strong> serves as the lead institution.</p>
+  </details>
+</div>
+
+<!-- Sessions -->
+<section class="section" id="sessions">
+  <div class="container">
+    <div class="section-eyebrow"><span class="num">01</span>The Ten-Session Arc</div>
+    <h2>One year, <em>ten sessions,</em> one region.</h2>
+    <p class="section-intro">
+      A progressive arc from foundations to culmination, meeting on second Fridays,
+      10:00 &ndash; 11:30 AM PT. Completed sessions link to their full archive &mdash;
+      recording, brief, demonstrations, and featured faculty work. Upcoming sessions
+      show what&rsquo;s ahead.
+    </p>
+    <div class="progress-wrap" aria-label="Series progress">
+      <span class="progress-label">Series Progress</span>
+      <span class="progress-count"><span id="progress-done">0</span> <span class="of">of 10 completed</span></span>
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="sessions-list" id="sessions-list"><!-- populated by script --></div>
+  </div>
+</section>
+
+<!-- Tracks -->
+<section class="section tracks-section" id="tracks">
+  <div class="container">
+    <div class="section-eyebrow"><span class="num">02</span>Four Pathways</div>
+    <h2>Parallel entry points &mdash; <em>not a ladder.</em></h2>
+    <p class="section-intro">
+      Each track serves a different faculty reality and exits with its own credential.
+      The monthly convenings are where all four tracks meet in one room.
+    </p>
+
+    <div class="tracks-grid">
+      <a class="track-card t1" href="https://larc.instructure.com/courses/25011~155" target="_blank" rel="noopener">
+        <div class="track-num">Track 01</div>
+        <h3>Research &amp; Professional Development</h3>
+        <p>Foundational AI literacy for every faculty member &mdash; building the regional knowledge floor.</p>
+        <div class="track-exit">Exit &middot; AI Literacy</div>
+      </a>
+      <a class="track-card t2" href="https://larc.instructure.com/courses/25011~155" target="_blank" rel="noopener">
+        <div class="track-num">Track 02</div>
+        <h3>Curriculum Development</h3>
+        <p>Formal Course Outline of Record revision to integrate AI into approved curriculum.</p>
+        <div class="track-exit">Exit &middot; AI Curriculum Competency</div>
+      </a>
+      <a class="track-card t3" href="https://larc.instructure.com/courses/25011~155" target="_blank" rel="noopener">
+        <div class="track-num">Track 03</div>
+        <h3>Instructional Practice Integration</h3>
+        <p>Classroom AI experimentation in courses you&rsquo;re teaching now &mdash; without formal COR revision.</p>
+        <div class="track-exit">Exit &middot; Applied AI Fluency</div>
+      </a>
+      <a class="track-card t4" href="https://larc.instructure.com/courses/25011~155" target="_blank" rel="noopener">
+        <div class="track-num">Track 04</div>
+        <h3>Train the Trainer</h3>
+        <p>Designing the AI professional development frameworks that will scale this work across the region.</p>
+        <div class="track-exit">Exit &middot; AI PD Architect</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Resources -->
+<section class="section" id="resources">
+  <div class="container">
+    <div class="section-eyebrow"><span class="num">03</span>Program Quick Access</div>
+    <h2>Everything, <em>one click away.</em></h2>
+    <p class="section-intro">The convening hub connects to every corner of the project. If you&rsquo;re looking for it, it starts here.</p>
+
+    <div class="resources-grid">
+      <a href="https://larc.instructure.com/courses/25011~155" class="resource-card" target="_blank" rel="noopener">
+        <div class="card-eyebrow">Program Hub</div>
+        <h3>Regional Canvas Course</h3>
+        <p>Tracks, modules, templates, gates, communities of practice, and all program materials for accepted participants.</p>
+        <div class="card-link">Open Canvas &nearr;</div>
+      </a>
+      <a href="https://vrcalip-pixel.github.io/lbcc-ai-readiness" class="resource-card" target="_blank" rel="noopener">
+        <div class="card-eyebrow">Self-Assessment</div>
+        <h3>AI Readiness Assessment</h3>
+        <p>Locate your starting point on the map. Advisory, personal, and yours to revisit anytime.</p>
+        <div class="card-link">Take the Assessment &nearr;</div>
+      </a>
+      <a href="https://losangelesrc.org/projects/round-10-ai-literacy-innovation-project/" class="resource-card" target="_blank" rel="noopener">
+        <div class="card-eyebrow">About</div>
+        <h3>Project Website</h3>
+        <p>The official LARC project page &mdash; background, regional context, and partner information.</p>
+        <div class="card-link">Visit LARC &nearr;</div>
+      </a>
+      <a href="briefs/" class="resource-card"><!-- TODO: link to Signal archive page when built -->
+        <div class="card-eyebrow">Monthly Brief</div>
+        <h3>The Regional Signal Archive</h3>
+        <p>Every monthly AI-in-higher-education brief, collected in one place. First edition arrives after Session 1.</p>
+        <div class="card-link">Coming Soon &rarr;</div>
+      </a>
+      <a href="#sessions" class="resource-card"><!-- Recordings live inside each session's archive row -->
+        <div class="card-eyebrow">Watch</div>
+        <h3>Session Recordings</h3>
+        <p>Recordings of main-room segments from each convening, posted within one week of each session.</p>
+        <div class="card-link">Coming Soon &rarr;</div>
+      </a>
+      <a href="#" class="resource-card"><!-- TODO: replace # with Google Form URL -->
+        <div class="card-eyebrow">Connect</div>
+        <h3>Questions &amp; Inquiries</h3>
+        <p>Participant questions, speaker interest, or requests from colleagues at other colleges and regions.</p>
+        <div class="card-link">Open Contact Form &rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow"><span class="num">04</span>Get in Touch</div>
+    <h2>The team behind <em>the work.</em></h2>
+    <p class="section-intro">Questions about logistics, your track, or the convenings? Reach the right person directly.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">Project Lead</div>
+        <div class="contact-name">Koby Moridzadeh</div>
+        <div class="contact-title">Acting Dean of Career Education, LBCC</div>
+        <a href="mailto:kmoridzadeh@lbcc.edu">kmoridzadeh@lbcc.edu</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Faculty Lead</div>
+        <div class="contact-name">Vincent Calip</div>
+        <div class="contact-title">Convening content, Campus Voices, spotlights, track questions</div>
+        <a href="mailto:vcalip@lbcc.edu">vcalip@lbcc.edu</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Project Manager</div>
+        <div class="contact-name">Ruth Amanuel</div>
+        <div class="contact-title">Logistics, stipends, attendance, Canvas access</div>
+        <a href="mailto:ramanuel@lbcc.edu">ramanuel@lbcc.edu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <strong>LA-25 LARC and LBCC AI Literacy &amp; Innovation Project</strong>
+        <a href="https://www.lbcc.edu/" target="_blank" rel="noopener">Long Beach City College</a>, Lead Institution
+      </div>
+      <div class="footer-partners">
+        In partnership with the <a href="https://losangelesrc.org/" target="_blank" rel="noopener">Los Angeles Regional Consortium</a><br>
+        Funded by the <a href="https://www.cccco.edu/" target="_blank" rel="noopener">California Community Colleges Strong Workforce Program, Round 10</a>
+      </div>
+      <img class="footer-emblem" src="assets/cccc-workforce-emblem.png" alt="California Community Colleges Workforce Education emblem">
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Long Beach City College &middot; LA-25 LARC and LBCC AI Literacy &amp; Innovation Project.
+      Monthly Regional Convenings hub. This page is currently a draft for internal review and is subject to revision before public release.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   SESSION CONFIG — EDIT THIS BLOCK ONLY
+   Cadence: 2nd Fridays, 10:00–11:30 AM Pacific (per participant survey).
+   Exceptions: Session 1 launches Fri Aug 28 (2nd Friday Aug 14 falls
+   before most fall semesters begin); February moves to Fri Feb 19
+   (Feb 12 is the Lincoln Day holiday — VERIFY against academic calendar).
+   Also verify Apr 9 against spring break calendars across colleges.
+   Offsets: PDT = -07:00 (Mar–Oct), PST = -08:00 (Nov–Feb).
+   url: link to the session subpage, or null for "Coming Soon".
+   ===================================================================== */
+const SESSIONS = [
+  { n: 1,  title: "Foundations: Same Map, Different Starting Points",
+    focus: "Where am I starting, and what does my track ask of me?",
+    date: "2026-08-28T10:00:00-07:00", durationMin: 90, optional: false,
+    poc: "Live NotebookLM build \u2014 a real course syllabus becomes a study guide and audio overview in minutes.",
+    voices: "Three seeded champions \u2014 one New to AI, one Innovator, one Leader \u2014 from three different colleges.",
+    breakout: "Track rooms: introductions, one-word AI check-in, and individual goal-setting.",
+    spotlight: "Starting Points \u2014 the region\u2019s aggregate AI readiness snapshot, plus named volunteers sharing theirs.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 2,  title: "Explore: The Tool Landscape by Sector",
+    focus: "What does AI actually look like in my discipline\u2019s workforce sector?",
+    date: "2026-09-11T10:00:00-07:00", durationMin: 90, optional: false,
+    poc: "Sector pathway demo \u2014 one tool mapped to a workforce sector, showing how the logic transfers to all nine.",
+    voices: "Gateway Cities subregion \u2014 faculty champions on the AI landscape at their colleges.",
+    breakout: "Track rooms with a sector prompt: pick your pathway, pick one tool to test this month.",
+    spotlight: "Track 1 SMART goals and Track 3 practice inventories.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 3,  title: "Design: From Idea to Integration Plan",
+    focus: "What exactly will I build, and how does it map to my course outcomes?",
+    date: "2026-10-09T10:00:00-07:00", durationMin: 90, optional: false,
+    poc: "Live PlayLab build \u2014 a course chatbot from blank page to working prototype, design decisions narrated.",
+    voices: "San Gabriel Valley subregion.",
+    breakout: "Peer feedback on drafts \u2014 integration plans, COR framing, PD design principles, credential pathways.",
+    spotlight: "Early AI Integration Plan excerpts from across the region.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 4,  title: "Build: Guardrails, Ethics & the D4 Lens",
+    focus: "How do I build AI into my practice without compromising integrity or student trust?",
+    date: "2026-11-13T10:00:00-08:00", durationMin: 90, optional: false,
+    poc: "Configuring guardrails live \u2014 boundaries, refusal behavior, and what students see when they push the limits.",
+    voices: "Westside subregion.",
+    breakout: "Ethics scenario rounds \u2014 each track works a realistic classroom or curriculum dilemma.",
+    spotlight: "Tool configuration documentation.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 5,  title: "Midpoint Showcase: Evidence of Momentum",
+    focus: "What has this region actually built in one semester?",
+    date: "2026-12-11T10:00:00-08:00", durationMin: 90, optional: false,
+    poc: "Format flip: participant-led demos, curated from fall submissions across all four tracks.",
+    voices: "Cross-track lightning shares \u2014 sixty-second wins from around the region.",
+    breakout: "Fall reflection and spring intention: what worked, what surprised you, what\u2019s your January move?",
+    spotlight: "This entire session is the spotlight.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 6,  title: "Open Studio (Winter Intersession)",
+    focus: "Drop-in build time with expert support \u2014 optional, no obligations.",
+    date: "2027-01-08T10:00:00-08:00", durationMin: 90, optional: true,
+    note: "A different format entirely: ninety minutes of supported work time. Rotating help desks for Canvas and templates, a tool configuration clinic, a credential study jam (Google AI Essentials / AI-900), and quiet co-working. Come if it helps you \u2014 catch up, get unstuck, or get ahead.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 7,  title: "Deploy: AI in the Live Classroom",
+    focus: "What happens when real students meet what I built?",
+    date: "2027-02-19T10:00:00-08:00", durationMin: 90, optional: false,
+    poc: "A production classroom deployment shown live, with real (de-identified) student interaction.",
+    voices: "San Fernando Valley subregion \u2014 plus a student voice panel on the experience from their side.",
+    breakout: "Deployment troubleshooting clinics \u2014 bring your live problem, leave with two peer suggestions.",
+    spotlight: "First deployment logs from spring classrooms.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 8,  title: "Evaluate: What\u2019s Working, and What Counts as Evidence",
+    focus: "How do I know my integration worked \u2014 and what would convince a skeptic?",
+    date: "2027-03-12T10:00:00-08:00", durationMin: 90, optional: false,
+    poc: "Responsibly analyzing de-identified student feedback with AI \u2014 privacy guardrails narrated step by step.",
+    voices: "South Bay and Central LA subregions \u2014 completing the year\u2019s rotation.",
+    breakout: "Evidence calibration \u2014 bring one data point; is it evidence, and what would make it stronger?",
+    spotlight: "Tool evaluation drafts and revised COR excerpts.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 9,  title: "Scale: Architecting What Comes Next",
+    focus: "How does individual faculty work become institutional capacity?",
+    date: "2027-04-09T10:00:00-07:00", durationMin: 90, optional: false,
+    poc: "The meta-demo \u2014 a Track 4 participant facilitates a live mini-PD segment for the full group.",
+    voices: "Open call \u2014 champions from colleges planning local AI professional development.",
+    breakout: "Cross-track rooms: how does your work feed a college-level PD plan at your institution?",
+    spotlight: "Track 4 professional development prototypes.",
+    recording: null, brief: null, pageUrl: null },
+  { n: 10, title: "Culminate: Credentials, Capstones & the Road Ahead",
+    focus: "What did we build together \u2014 and what do we carry forward?",
+    date: "2027-05-14T10:00:00-07:00", durationMin: 90, optional: false,
+    poc: "Best-of showcase \u2014 standout artifacts demonstrated live by the faculty who made them.",
+    voices: "One voice per subregion: one thing that changed at my college this year.",
+    breakout: "Forward commitments \u2014 one practice to sustain, one colleague to bring along.",
+    spotlight: "Completed portfolios, approved CORs, PD prototypes, and exit credentials recognized by name.",
+    recording: null, brief: null, pageUrl: null }
+];
+/* ===================== END EDITABLE CONFIG ========================== */
+
+const fmtDate = d => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+const fmtDateShort = d => d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+const fmtTime = d => d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+function timeRange(start, mins) {
+  const end = new Date(start.getTime() + mins * 60000);
+  let a = fmtTime(start), b = fmtTime(end);
+  const am = a.slice(-2), bm = b.slice(-2);
+  if (am === bm) a = a.slice(0, -3);
+  return a + " \u2013 " + b + " PT";
+}
+const pad = n => String(n).padStart(2, "0");
+
+function sessionState(s, now) {
+  const start = new Date(s.date);
+  const end = new Date(start.getTime() + s.durationMin * 60000);
+  if (now >= start && now <= end) return "live";
+  if (now > end) return "done";
+  return "upcoming";
+}
+
+function nextSession(now) {
+  return SESSIONS.find(s => {
+    const st = sessionState(s, now);
+    return st === "upcoming" || st === "live";
+  }) || null;
+}
+
+function renderLedger() {
+  const now = new Date();
+  const next = nextSession(now);
+  const list = document.getElementById("sessions-list");
+  const openSet = new Set(
+    Array.from(list.querySelectorAll(".session-wrap.is-open")).map(w => Number(w.dataset.session))
+  );
+  list.innerHTML = "";
+
+  SESSIONS.forEach(s => {
+    const start = new Date(s.date);
+    const state = sessionState(s, now);
+    const isNext = next && s.n === next.n;
+
+    const wrap = document.createElement("div");
+    wrap.className = "session-wrap"
+      + (state === "done" ? " is-done" : "")
+      + (isNext ? " is-next" : "")
+      + (s.optional ? " is-optional" : "")
+      + (openSet.has(s.n) || (isNext && openSet.size === 0 && !renderLedger.ranOnce) ? " is-open" : "");
+    wrap.dataset.session = s.n;
+
+    let tags = "";
+    if (state === "live") tags += '<span class="s-tag next">Happening Now</span>';
+    else if (isNext) tags += '<span class="s-tag next">Next Up</span>';
+    else if (state === "done") tags += '<span class="s-tag done">Completed</span>';
+    else tags += '<span class="s-tag upcoming">Upcoming</span>';
+    if (s.optional) tags += '<span class="s-tag optional">Optional</span>';
+
+    let detailBody = "";
+    if (s.note) {
+      detailBody = '<div class="detail-note">' + s.note + '</div>';
+    } else {
+      detailBody = '<div class="detail-grid">'
+        + '<div class="detail-block"><div class="detail-label">Proof of Concept</div><div class="detail-text">' + s.poc + '</div></div>'
+        + '<div class="detail-block"><div class="detail-label">Campus Voices</div><div class="detail-text">' + s.voices + '</div></div>'
+        + '<div class="detail-block"><div class="detail-label">Breakout Rooms</div><div class="detail-text">' + s.breakout + '</div></div>'
+        + '<div class="detail-block"><div class="detail-label">Spotlight</div><div class="detail-text">' + s.spotlight + '</div></div>'
+        + '</div>';
+    }
+
+    let archive = '<div class="detail-archive">';
+    const links = [];
+    if (s.recording) links.push('<a class="btn-archive" href="' + s.recording + '" target="_blank" rel="noopener">Watch Recording &nearr;</a>');
+    if (s.brief) links.push('<a class="btn-archive" href="' + s.brief + '" target="_blank" rel="noopener">Regional Signal Brief &rarr;</a>');
+    if (s.pageUrl) links.push('<a class="btn-archive" href="' + s.pageUrl + '">Full Session Page &rarr;</a>');
+    if (links.length) {
+      archive += links.join("");
+    } else if (state === "done") {
+      archive += '<span class="detail-archive-note">Recording, brief, and artifacts are being prepared and will appear here.</span>';
+    } else {
+      archive += '<span class="detail-archive-note">The recording, Regional Signal brief, and featured artifacts will live here after the session.</span>';
+    }
+    archive += '</div>';
+
+    const expanded = wrap.classList.contains("is-open");
+    wrap.innerHTML =
+      '<div class="session-row">' +
+        '<div class="session-num">' + pad(s.n) + '</div>' +
+        '<div>' +
+          '<div class="session-title">' + s.title + '</div>' +
+          '<div class="session-focus">' + s.focus + '</div>' +
+          '<div class="session-datewrap">' +
+            '<span class="session-date">' + fmtDateShort(start) + ' &middot; ' + timeRange(start, s.durationMin) + '</span>' +
+          '</div>' +
+          '<div class="session-tags">' + tags + '</div>' +
+        '</div>' +
+        '<div class="session-action">' +
+          '<span class="row-chev" aria-hidden="true">&#9662;</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="session-detail" id="detail-' + s.n + '">' + detailBody + archive + '</div>';
+
+    const rowEl = wrap.querySelector(".session-row");
+    rowEl.setAttribute("role", "button");
+    rowEl.setAttribute("tabindex", "0");
+    rowEl.setAttribute("aria-expanded", expanded);
+    rowEl.setAttribute("aria-controls", "detail-" + s.n);
+    const toggle = () => {
+      const nowOpen = wrap.classList.toggle("is-open");
+      rowEl.setAttribute("aria-expanded", nowOpen);
+    };
+    rowEl.addEventListener("click", toggle);
+    rowEl.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+    });
+
+    list.appendChild(wrap);
+  });
+  renderLedger.ranOnce = true;
+
+  /* Series progress strip */
+  const doneCount = SESSIONS.filter(s => sessionState(s, now) === "done").length;
+  document.getElementById("progress-done").textContent = doneCount;
+  const bar = document.getElementById("progress-bar");
+  const TRACK_COLORS = ["#003366", "#0F6E56", "#854F0B", "#7A2855"];
+  bar.innerHTML = "";
+  SESSIONS.forEach((s, i) => {
+    const st = sessionState(s, now);
+    const seg = document.createElement("div");
+    seg.className = "progress-seg"
+      + (st === "done" ? " done" : "")
+      + ((next && s.n === next.n) ? " next" : "");
+    if (st === "done") {
+      const c = TRACK_COLORS[Math.min(3, Math.floor(i / 2.5))];
+      seg.style.background = c;
+      seg.style.borderColor = c;
+    }
+    seg.title = "Session " + s.n + " \u00b7 " + s.title;
+    bar.appendChild(seg);
+  });
+}
+
+function tick() {
+  const now = new Date();
+  const next = nextSession(now);
+
+  const dateEl = document.getElementById("next-date");
+  const themeEl = document.getElementById("next-theme");
+  const cd = document.getElementById("countdown");
+  const live = document.getElementById("cd-live");
+  const label = document.getElementById("cd-label");
+
+  if (!next) {
+    dateEl.innerHTML = "Series complete";
+    themeEl.innerHTML = "Thank you for a remarkable year";
+    label.textContent = "The 2026\u201327 convening series has concluded";
+    cd.style.display = "none"; live.style.display = "none";
+  } else {
+    const start = new Date(next.date);
+    const state = sessionState(next, now);
+    dateEl.innerHTML = fmtDate(start) + '<span class="sub">' + fmtTime(start) + " PT</span>";
+    themeEl.innerHTML = "Session " + next.n + '<span class="sub">' + next.title + "</span>";
+
+    if (state === "live") {
+      cd.style.display = "none";
+      live.style.display = "block";
+      label.textContent = "Session " + next.n + " is in progress";
+    } else {
+      cd.style.display = "grid";
+      live.style.display = "none";
+      label.innerHTML = "Counting down to <em>Session " + next.n + " &middot; " + next.title + "</em>";
+      let diff = Math.max(0, start - now);
+      const days = Math.floor(diff / 86400000); diff -= days * 86400000;
+      const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
+      const mins = Math.floor(diff / 60000); diff -= mins * 60000;
+      const secs = Math.floor(diff / 1000);
+      document.getElementById("cd-days").textContent = pad(days);
+      document.getElementById("cd-hours").textContent = pad(hours);
+      document.getElementById("cd-mins").textContent = pad(mins);
+      document.getElementById("cd-secs").textContent = pad(secs);
+    }
+  }
+
+}
+
+let lastKey = null;
+function loop() {
+  const now = new Date();
+  const next = nextSession(now);
+  const key = next ? next.n + ":" + sessionState(next, now) : "none";
+  if (key !== lastKey) { renderLedger(); lastKey = key; }
+  tick();
+}
+loop();
+setInterval(loop, 1000);
+</script>
+
+</body>
+</html>

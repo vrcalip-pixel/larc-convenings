@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Monthly Regional Convenings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-900:#001A33; --navy:#003366; --crimson:#C8102E; --gold:#FFB81C;
+    --cream:#F8F4ED; --ink-soft:#3D434A; --ink-mute:#6B7280;
+    --serif:'Fraunces',Georgia,serif; --sans:'Manrope','Segoe UI',sans-serif;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family:var(--sans); background:var(--cream); color:var(--navy-900);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:2rem 1.5rem; text-align:center; line-height:1.65;
+  }
+  .wrap { max-width:38rem; }
+  .code {
+    font-family:var(--serif); font-weight:600; font-size:clamp(4rem,14vw,8rem);
+    line-height:1; letter-spacing:-.04em; color:var(--gold); margin-bottom:.5rem;
+  }
+  h1 {
+    font-family:var(--serif); font-weight:500; font-size:clamp(1.6rem,4vw,2.4rem);
+    letter-spacing:-.02em; margin-bottom:1rem;
+  }
+  p { color:var(--ink-soft); margin-bottom:2rem; }
+  a.btn {
+    display:inline-block; background:var(--navy); color:#fff;
+    padding:.85rem 1.6rem; border-radius:4px; text-decoration:none;
+    font-weight:800; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
+    transition:background .2s ease;
+  }
+  a.btn:hover { background:var(--crimson); }
+  .note { margin-top:2rem; font-size:.8rem; color:var(--ink-mute); }
+  .note a { color:var(--navy); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <h1>That page is not here.</h1>
+    <p>
+      The link may be out of date, or the session page may not be published yet.
+      Session archives go up within one week of each convening.
+    </p>
+    <a class="btn" href="/">Back to the convenings hub</a>
+    <p class="note">
+      Still stuck? Email <a href="mailto:vcalip@lbcc.edu">vcalip@lbcc.edu</a>.
+    </p>
+  </div>
+</body>
+</html>
