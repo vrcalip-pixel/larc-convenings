@@ -467,8 +467,15 @@
     color: #fff; margin-bottom: 0.2rem; letter-spacing: -0.01em;
   }
   .contact-title { font-size: 0.82rem; color: var(--navy-100); margin-bottom: 0.9rem; flex-grow: 1; }
-  .contact-card a { color: var(--gold); font-weight: 700; font-size: 0.9rem; margin-top: auto; }
-  .contact-card a:hover { color: #fff; }
+  .contact-handles {
+    font-size: 0.85rem; color: var(--gold); font-weight: 600;
+    line-height: 1.5; margin-top: auto;
+    padding-top: 0.85rem; border-top: 1px solid rgba(255, 184, 28, 0.25);
+  }
+  .contact-cta { margin-top: 2rem; text-align: center; }
+  .contact-cta .btn-gold { background: var(--gold); color: var(--navy-900); box-shadow: 0 10px 24px -12px rgba(255, 184, 28, 0.55); }
+  .contact-cta .btn-gold:hover { background: #fff; color: var(--navy-900); transform: translateY(-2px); }
+  .contact-cta p { font-size: 0.85rem; color: var(--navy-100); margin-top: 0.9rem; }
   .contact-desc { font-size: 0.85rem; color: var(--navy-100); margin-top: 0.6rem; line-height: 1.5; }
 
   /* ===== Footer ===== */
@@ -716,7 +723,7 @@
         <p>Recordings of main-room segments from each convening, posted within one week of each session.</p>
         <div class="card-link">Coming Soon &rarr;</div>
       </a>
-      <a href="#contact" class="resource-card"><!-- TODO: replace with the Google Form URL once published -->
+      <a href="contact.html" class="resource-card">
         <div class="card-eyebrow">Connect</div>
         <h3>Questions &amp; Inquiries</h3>
         <p>Participant questions, speaker interest, or requests from colleagues at other colleges and regions.</p>
@@ -731,27 +738,32 @@
   <div class="container">
     <div class="section-eyebrow"><span class="num">04</span>Get in Touch</div>
     <h2>The team behind <em>the work.</em></h2>
-    <p class="section-intro">Questions about logistics, your track, or the convenings? Reach the right person directly.</p>
+    <p class="section-intro">Questions about logistics, your track, or the convenings? Send one message and it reaches the right person.</p>
 
     <div class="contact-grid">
       <div class="contact-card">
         <div class="contact-role">Project Lead</div>
         <div class="contact-name">Koby Moridzadeh</div>
         <div class="contact-title">Acting Dean of Career Education, LBCC</div>
-        <a href="mailto:kmoridzadeh@lbcc.edu">kmoridzadeh@lbcc.edu</a>
+        <div class="contact-handles">Partnerships, press, and program-level inquiries</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">Program Manager</div>
+        <div class="contact-name">Ruth Amanuel</div>
+        <div class="contact-title">AI Literacy &amp; Innovation Project</div>
+        <div class="contact-handles">Logistics, stipends, attendance, Canvas access</div>
       </div>
       <div class="contact-card">
         <div class="contact-role">Faculty Lead</div>
-        <div class="contact-name">Vincent Calip</div>
-        <div class="contact-title">Convening content, Campus Voices, spotlights, track questions</div>
-        <a href="mailto:vcalip@lbcc.edu">vcalip@lbcc.edu</a>
+        <div class="contact-name">Dr. Vincent Calip</div>
+        <div class="contact-title">Faculty Lead Coordinator, LBCC</div>
+        <div class="contact-handles">Track questions, deliverables, presenting at a convening</div>
       </div>
-      <div class="contact-card">
-        <div class="contact-role">Project Manager</div>
-        <div class="contact-name">Ruth Amanuel</div>
-        <div class="contact-title">Logistics, stipends, attendance, Canvas access</div>
-        <a href="mailto:ramanuel@lbcc.edu">ramanuel@lbcc.edu</a>
-      </div>
+    </div>
+
+    <div class="contact-cta">
+      <a href="contact.html" class="btn btn-gold">Ask a question &rarr;</a>
+      <p>Tell us what it is about, and your message goes to the right person with the rest of the team copied.</p>
     </div>
   </div>
 </section>
