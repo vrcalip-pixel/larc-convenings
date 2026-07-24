@@ -45,7 +45,7 @@ Pacific Time changes twice a year, and the date string must carry the correct of
 - **`-07:00`** — Pacific Daylight Time, roughly March through early November
 - **`-08:00`** — Pacific Standard Time, roughly November through early March
 
-So a 10:00 AM session in October is `"2026-10-09T10:00:00-07:00"`, and a 10:00 AM session in December is `"2026-12-11T10:00:00-08:00"`. Check `docs/SESSION-CALENDAR.md` — every date is already set correctly there.
+So a 1:00 PM session in October is `"2026-10-02T13:00:00-07:00"`, and a 1:00 PM session in December is `"2026-12-04T13:00:00-08:00"`. Check `docs/SESSION-CALENDAR.md` — every date is already set correctly there.
 
 ---
 
