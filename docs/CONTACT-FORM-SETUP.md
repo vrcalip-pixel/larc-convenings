@@ -46,7 +46,7 @@ Load the `/exec` URL in a browser. You will get JSON:
 
 ```json
 {"ok":true,"service":"LA-25 convenings contact form",
- "version":"3.3-reply-safe","bound":true,"status":"ready"}
+ "version":"3.4-hardened","bound":true,"status":"ready"}
 ```
 
 The `version` field is the point. If it does not match the `SCRIPT_VERSION` constant at the top of the file you just edited, your deployment did not take — go back and cut a new version.
