@@ -29,6 +29,7 @@ larc-convenings/
 │   ├── EDITING-GUIDE.md        How to update the site month to month
 │   └── SESSION-CALENDAR.md     All ten dates, with the exceptions flagged
 └── tools/
+    ├── contact-form-backend.gs Archive copy of the Apps Script backend (not live)
     └── extract-assets.py       Pulls the logos out of the original draft file
 ```
 
@@ -41,7 +42,7 @@ There is no build step, no framework, and no dependencies. Every page is a singl
 Two things in `index.html` need attention:
 
 1. **Remove the draft banner.** Delete the `<div class="draft-banner">` near the top of `<body>`. It reads *"Draft — for internal review · not for distribution."*
-2. **Add the contact form URL.** In the Resources section, the "Questions & Inquiries" card links to `#`. Replace it with the Google Form URL.
+2. **Confirm the contact form is wired up.** The "Questions & Inquiries" card and the "Ask a question" button both point to `contact.html`. That page posts to a Google Apps Script endpoint — see `docs/CONTACT-FORM-SETUP.md`. Load the `/exec` URL in a browser and check the `version` field before launch.
 
 Also confirm the four logo files exist in `assets/`. If any are missing, see the next section.
 
@@ -103,6 +104,20 @@ Fonts are Fraunces (display) and Manrope (body), loaded from Google Fonts. Progr
 These match the program's Canvas conventions. Track colors are used as accents only, and Track 4 is plum throughout.
 
 Pages are built to WCAG 2.1 AA: visible keyboard focus, a skip link, `aria-expanded` on the session rows, and `prefers-reduced-motion` respected on the countdown pulse.
+
+---
+
+## Contact form
+
+`contact.html` posts to a container-bound Google Apps Script that writes each
+submission to a Google Sheet and emails the team member who handles that topic.
+
+The live code is **not in this repository**. It lives in the Apps Script editor
+attached to the response Sheet. `tools/contact-form-backend.gs` is an archive
+copy kept in sync by hand — editing it changes nothing on its own.
+
+Full setup, routing table, diagnostics, and troubleshooting:
+[`docs/CONTACT-FORM-SETUP.md`](docs/CONTACT-FORM-SETUP.md)
 
 ---
 
