@@ -39,10 +39,15 @@
 
 // ------------------------------------------------------------------ CONFIG
 
-var SCRIPT_VERSION = '3.3-reply-safe';   // shown by doGet — proves which code is deployed
+var SCRIPT_VERSION = '3.4-hardened';     // shown by doGet — proves which code is deployed
 var SHEET_NAME     = 'Responses';
 var TIMEZONE       = 'America/Los_Angeles';
 var STAMP_FORMAT   = 'dddd, mm/dd/yyyy, h:mm AM/PM';
+
+// Abuse controls. The /exec URL is public by necessity — it lives in
+// contact.html — so the endpoint has to assume hostile callers.
+var MAX_PER_HOUR   = 40;    // total submissions accepted per rolling hour
+var DUPLICATE_MINS = 5;     // same email + same message inside this window is dropped
 
 var TEAM = {
   faculty: 'vcalip@lbcc.edu',      // Vincent Calip   — Faculty Lead
@@ -91,10 +96,25 @@ function doPost(e) {
     }
     if (message.length > 5000) message = message.substring(0, 5000) + ' [truncated]';
 
+    // Drop repeat submissions (double-clicks, and crude flooding).
+    if (isDuplicate(email, message)) return json({ ok: true });
+
+    // Cap total volume so an attacker cannot burn the daily mail quota and
+    // silence real inquiries. Rejected quietly — no signal to the caller.
+    if (!underRateLimit()) {
+      Logger.log('Rate limit hit. Dropped submission from ' + email);
+      return json({ ok: true });
+    }
+
+    // Routing uses the RAW topic — it must still match a ROUTING key.
     var to = ROUTING[topic] || FALLBACK;
 
     // Write first. If mail fails later, the submission is already safe.
-    appendRow([new Date(), name, email, college, topic, message, to, clean(p.page)]);
+    // Every user-supplied field is neutralised before it reaches a cell.
+    appendRow([new Date(), safeCell(name), safeCell(email), safeCell(college),
+               safeCell(topic), safeCell(message), to, safeCell(clean(p.page))]);
+
+    // The email body is plain text, so raw values are safe to use here.
     notify(to, name, email, college, topic, message);
 
     return json({ ok: true });
@@ -286,6 +306,41 @@ function logError(err, e) {
 function pad(s, n) {
   while (s.length < n) s += ' ';
   return s;
+}
+
+/**
+ * Neutralises spreadsheet formula injection.
+ *
+ * Google Sheets evaluates any cell value starting with = + - or @ as a
+ * formula. Without this, a submitted message can plant a live HYPERLINK
+ * phishing link in the sheet, or an IMPORTDATA call that ships adjacent
+ * cell contents to an external server. The leading apostrophe forces
+ * Sheets to store the value as literal text; it is not displayed.
+ */
+function safeCell(v) {
+  var s = clean(v);
+  return /^[=+\-@\t\r]/.test(s) ? "'" + s : s;
+}
+
+/** True if this exact email + message arrived within the last few minutes. */
+function isDuplicate(email, message) {
+  var cache = CacheService.getScriptCache();
+  var key = 'dup_' + Utilities.base64EncodeWebSafe(
+    Utilities.computeDigest(Utilities.DigestAlgorithm.MD5,
+                            email.toLowerCase() + '|' + message));
+  if (cache.get(key)) return true;
+  cache.put(key, '1', DUPLICATE_MINS * 60);
+  return false;
+}
+
+/** Rolling hourly cap across all submitters. */
+function underRateLimit() {
+  var cache = CacheService.getScriptCache();
+  var key = 'rate_' + Math.floor(Date.now() / 3600000);
+  var n = Number(cache.get(key) || 0);
+  if (n >= MAX_PER_HOUR) return false;
+  cache.put(key, String(n + 1), 3700);
+  return true;
 }
 
 function clean(v) {
