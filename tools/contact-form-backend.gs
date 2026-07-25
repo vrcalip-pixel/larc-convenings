@@ -1,125 +1,172 @@
 /**
- * Backend for the Monthly Regional Convenings contact form.
+ * ============================================================================
+ * LA-25 LARC & LBCC AI Literacy & Innovation Project
+ * Monthly Regional Convenings — contact form backend (MINIMAL)
+ * ============================================================================
  *
- * Receives a POST from contact.html, appends the submission to a Google
- * Sheet, and emails the team member responsible for that topic.
+ * Purpose: prove the pipe. Every valid submission becomes one row in this
+ * Sheet. No email routing, no notifications, no conditional logic — those
+ * come next, once this is confirmed working.
  *
- * The full deployment walkthrough is in docs/CONTACT-FORM-SETUP.md.
- * Quick version:
- *   1. script.google.com  ->  New project  ->  paste this file
- *   2. Set SHEET_ID below
- *   3. Deploy  ->  New deployment  ->  Web app
- *        Execute as ............ Me
- *        Who has access ........ Anyone          <-- must be "Anyone"
- *   4. Copy the /exec URL into ENDPOINT in contact.html
+ * This is a CONTAINER-BOUND script. It lives inside the Sheet it writes to,
+ * so there is no Sheet ID to paste and no way to point it at the wrong file.
+ * That single change removes the failure mode the previous version hit.
+ *
+ * Setup: see CONTACT-FORM-SETUP.md
+ * ============================================================================
  */
 
-// ------------------------------------------------------------------ CONFIG
+// ------------------------------------------------------------------- CONFIG
 
-// From the Sheet's URL: docs.google.com/spreadsheets/d/THIS_PART/edit
-var SHEET_ID   = 'PASTE_YOUR_SHEET_ID_HERE';
 var SHEET_NAME = 'Responses';
 
-var TEAM = {
-  faculty: 'vcalip@lbcc.edu',      // Vincent Calip  — Faculty Lead
-  manager: 'ramanuel@lbcc.edu',    // Ruth Amanuel   — Project Manager
-  lead:    'kmoridzadeh@lbcc.edu'  // Koby Moridzadeh — Project Lead
-};
-
-// Keys must match the <option> values in contact.html exactly.
-var ROUTING = {
-  'Logistics, stipends, or attendance': TEAM.manager,
-  'Canvas access or technical trouble':  TEAM.manager,
-  'My track or a program deliverable':   TEAM.faculty,
-  'Presenting at a convening':           TEAM.faculty,
-  'Partnership or press inquiry':        TEAM.lead,
-  'Something else':                      TEAM.faculty
-};
-
-var FALLBACK = TEAM.faculty;
-var HEADERS  = ['Timestamp', 'Name', 'Email', 'College', 'Topic', 'Message', 'Routed to', 'Source page'];
+var HEADERS = [
+  'Timestamp',
+  'Name',
+  'Email',
+  'College',
+  'Topic',
+  'Message',
+  'Source page'
+];
 
 // ----------------------------------------------------------------- HANDLERS
 
+/**
+ * Visiting the /exec URL in a browser hits this.
+ * If you see JSON with "status":"ready", the deployment is live.
+ */
+function doGet() {
+  return json({
+    ok: true,
+    service: 'LA-25 convenings contact form',
+    status: 'ready',
+    sheet: SpreadsheetApp.getActiveSpreadsheet().getName(),
+    tab: SHEET_NAME
+  });
+}
+
+/**
+ * Receives the POST from contact.html.
+ */
 function doPost(e) {
   try {
     var p = (e && e.parameter) || {};
 
-    // Honeypot: bots fill the hidden "website" field. Accept quietly, store nothing.
-    if (p.website) return json({ ok: true });
+    // Honeypot. Bots fill the hidden "website" field.
+    // Accept quietly so they get no signal, but store nothing.
+    if (p.website) {
+      return json({ ok: true });
+    }
 
     var name    = clean(p.name);
     var email   = clean(p.email);
     var college = clean(p.college);
     var topic   = clean(p.topic);
     var message = clean(p.message);
+    var page    = clean(p.page);
 
     if (!name || !email || !topic || !message) {
       return json({ ok: false, error: 'Missing required fields' });
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return json({ ok: false, error: 'Invalid email address' });
     }
-    if (message.length > 5000) message = message.substring(0, 5000) + ' [truncated]';
 
-    var to = ROUTING[topic] || FALLBACK;
+    if (message.length > 5000) {
+      message = message.substring(0, 5000) + ' [truncated]';
+    }
 
-    appendRow([new Date(), name, email, college, topic, message, to, clean(p.page)]);
-    notify(to, name, email, college, topic, message);
+    appendRow([new Date(), name, email, college, topic, message, page]);
 
     return json({ ok: true });
 
   } catch (err) {
-    try {
-      MailApp.sendEmail(FALLBACK, '[Convenings] Contact form error',
-        'A submission failed.\n\nError: ' + err + '\n\nCheck the response sheet.');
-    } catch (ignored) {}
+    // Surfacing the real error makes debugging far faster than a generic failure.
     return json({ ok: false, error: String(err) });
   }
 }
 
-// Visiting the /exec URL in a browser confirms the deployment is live.
-function doGet() {
-  return json({ ok: true, service: 'LA-25 convenings contact form', status: 'ready' });
+// ------------------------------------------------------- RUN THESE MANUALLY
+
+/**
+ * STEP 1 — Run this once from the Apps Script editor before deploying.
+ *
+ * It does two things:
+ *   1. Triggers the Google permissions prompt (required, one time only)
+ *   2. Creates the Responses tab and its bold, frozen header row
+ */
+function setUp() {
+  var sheet = targetSheet();
+  Logger.log('Ready. Writing to "%s" in "%s".',
+    SHEET_NAME, SpreadsheetApp.getActiveSpreadsheet().getName());
+  return sheet.getName();
 }
 
-// -------------------------------------------------------------------- UTIL
+/**
+ * STEP 2 — Run this to prove the Sheet write works, before touching the website.
+ *
+ * If a test row appears in the Responses tab, the Sheet half is confirmed
+ * and any remaining problem is on the web page side. That split saves a lot
+ * of guessing.
+ */
+function testWrite() {
+  appendRow([
+    new Date(),
+    'Test Submission',
+    'test@example.com',
+    'Long Beach City College',
+    'Something else',
+    'This row was written by testWrite(). Delete it once you see it.',
+    'apps-script-editor'
+  ]);
+  Logger.log('Test row written. Check the "%s" tab.', SHEET_NAME);
+}
 
-function appendRow(row) {
-  var ss    = SpreadsheetApp.openById(SHEET_ID);
-  var sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+// --------------------------------------------------------------------- UTIL
+
+/**
+ * Returns the Responses sheet, creating it with headers if it does not exist.
+ */
+function targetSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(SHEET_NAME);
+
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+  }
+
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+    sheet.getRange(1, 1, 1, HEADERS.length)
+         .setFontWeight('bold')
+         .setBackground('#003366')
+         .setFontColor('#FFFFFF');
     sheet.setFrozenRows(1);
+    sheet.setColumnWidth(1, 160);  // Timestamp
+    sheet.setColumnWidth(6, 420);  // Message
   }
-  sheet.appendRow(row);
+
+  return sheet;
 }
 
-function notify(to, name, email, college, topic, message) {
-  var cc = [TEAM.faculty, TEAM.manager, TEAM.lead]
-    .filter(function (a) { return a !== to; })
-    .join(',');
-
-  var subject = '[Convenings] ' + topic + ' \u2014 ' + name + (college ? ', ' + college : '');
-
-  var body =
-    'A new inquiry came in through the convenings hub contact form.\n\n' +
-    'From:     ' + name + '\n' +
-    'Email:    ' + email + '\n' +
-    'College:  ' + (college || '(not given)') + '\n' +
-    'Topic:    ' + topic + '\n\n' +
-    '------------------------------------------------------------\n' +
-    message + '\n' +
-    '------------------------------------------------------------\n\n' +
-    'Reply to this email to respond directly to the sender.\n' +
-    'Every submission is also recorded in the response sheet.';
-
-  MailApp.sendEmail(to, subject, body, { cc: cc, replyTo: email, name: 'LA-25 Convenings' });
+/**
+ * Appends a row, using a lock so two submissions landing at the same
+ * moment cannot overwrite each other.
+ */
+function appendRow(row) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    targetSheet().appendRow(row);
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 function clean(v) {
-  return v === undefined || v === null ? '' : String(v).trim();
+  return (v === undefined || v === null) ? '' : String(v).trim();
 }
 
 function json(obj) {
