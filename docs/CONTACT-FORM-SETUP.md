@@ -46,7 +46,7 @@ Load the `/exec` URL in a browser. You will get JSON:
 
 ```json
 {"ok":true,"service":"LA-25 convenings contact form",
- "version":"3.0-split-canvas","bound":true,"status":"ready"}
+ "version":"3.1-stamp-fix","bound":true,"status":"ready"}
 ```
 
 The `version` field is the point. If it does not match the `SCRIPT_VERSION` constant at the top of the file you just edited, your deployment did not take — go back and cut a new version.
@@ -109,7 +109,7 @@ All run from the Apps Script editor's function dropdown.
 | "Something went wrong sending your message" | Open DevTools → Network → the `exec` request → Response. The script returns the real error |
 | CORS error in console | Deployment is not set to **Anyone**, or you are testing a local `file://` copy instead of the live URL |
 | Edits have no effect | You saved but did not cut a new deployment version. Check `version` at the `/exec` URL |
-| Timestamps show as `7/25/2026 14:39:41` | Run `formatTimestamps` |
+| An old row shows `7/25/2026 14:39:41` | Run `formatTimestamps` to backfill. New rows self-format as of v3.1 |
 | Messages reaching the wrong person | Run `showRouting`, then compare against the `<option>` text in `contact.html` |
 
 ---
