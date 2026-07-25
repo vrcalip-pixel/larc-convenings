@@ -466,16 +466,39 @@
     font-family: var(--serif); font-weight: 500; font-size: 1.3rem;
     color: #fff; margin-bottom: 0.2rem; letter-spacing: -0.01em;
   }
-  .contact-title { font-size: 0.82rem; color: var(--navy-100); margin-bottom: 0.9rem; flex-grow: 1; }
+  .contact-title {
+    font-size: 0.82rem; color: var(--navy-100); margin-bottom: 0.9rem;
+    /* Reserve two lines so the divider lands in the same place on every card,
+       even at widths where one title wraps and the others do not. */
+    min-height: 2.75rem;
+  }
   .contact-handles {
     font-size: 0.85rem; color: var(--gold); font-weight: 600;
-    line-height: 1.5; margin-top: auto;
+    line-height: 1.5;
+    /* Grows to absorb leftover space, keeping the cards equal height.
+       Previously this was margin-top:auto, which pinned the divider to the
+       bottom of the card — so a longer description pushed its own line up. */
+    flex-grow: 1;
     padding-top: 0.85rem; border-top: 1px solid rgba(255, 184, 28, 0.25);
   }
-  .contact-cta { margin-top: 2rem; text-align: center; }
-  .contact-cta .btn-gold { background: var(--gold); color: var(--navy-900); box-shadow: 0 10px 24px -12px rgba(255, 184, 28, 0.55); }
-  .contact-cta .btn-gold:hover { background: #fff; color: var(--navy-900); transform: translateY(-2px); }
-  .contact-cta p { font-size: 0.85rem; color: var(--navy-100); margin-top: 0.9rem; }
+  /* Section heading and the call to action share one row: text left, button
+     right. Wraps to stacked on narrow screens. */
+  .contact-head {
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between; align-items: flex-end;
+    gap: 1.5rem 2.5rem; margin-bottom: 2.5rem;
+  }
+  .contact-head-text { flex: 1 1 420px; }
+  /* .section-intro carries a 2.5rem bottom margin for normal sections; inside
+     this row the wrapper owns the spacing instead. */
+  .contact-head .section-intro { margin-bottom: 0; }
+  .contact-head-action { flex: 0 0 auto; }
+  /* Scoped to the section, not to the old .contact-cta wrapper. */
+  .contact-section .btn-gold { background: var(--gold); color: var(--navy-900); box-shadow: 0 10px 24px -12px rgba(255, 184, 28, 0.55); }
+  .contact-section .btn-gold:hover { background: #fff; color: var(--navy-900); transform: translateY(-2px); }
+  /* Cards now end the section, so it needs less breathing room before the
+     footer than a standard .section does. */
+  .contact-section { padding-bottom: 2.75rem; }
   .contact-desc { font-size: 0.85rem; color: var(--navy-100); margin-top: 0.6rem; line-height: 1.5; }
 
   /* ===== Footer ===== */
@@ -736,9 +759,16 @@
 <!-- Contact -->
 <section class="section contact-section" id="contact">
   <div class="container">
-    <div class="section-eyebrow"><span class="num">04</span>Get in Touch</div>
-    <h2>The team behind <em>the work.</em></h2>
-    <p class="section-intro">Questions about logistics, your track, or the convenings? Send one message and it reaches the right person.</p>
+    <div class="contact-head">
+      <div class="contact-head-text">
+        <div class="section-eyebrow"><span class="num">04</span>Get in Touch</div>
+        <h2>The team behind <em>the work.</em></h2>
+        <p class="section-intro">Questions about logistics, your track, or the convenings? Send one message and it reaches the right person.</p>
+      </div>
+      <div class="contact-head-action">
+        <a href="contact.html" class="btn btn-gold">Ask a question &rarr;</a>
+      </div>
+    </div>
 
     <div class="contact-grid">
       <div class="contact-card">
@@ -759,11 +789,6 @@
         <div class="contact-title">Faculty Lead Coordinator, LBCC</div>
         <div class="contact-handles">Track questions, deliverables, presenting at a convening</div>
       </div>
-    </div>
-
-    <div class="contact-cta">
-      <a href="contact.html" class="btn btn-gold">Ask a question &rarr;</a>
-      <p>Tell us what it is about, and your message goes to the right person with the rest of the team copied.</p>
     </div>
   </div>
 </section>
