@@ -39,7 +39,7 @@
 
 // ------------------------------------------------------------------ CONFIG
 
-var SCRIPT_VERSION = '3.1-stamp-fix';    // shown by doGet — proves which code is deployed
+var SCRIPT_VERSION = '3.3-reply-safe';   // shown by doGet — proves which code is deployed
 var SHEET_NAME     = 'Responses';
 var TIMEZONE       = 'America/Los_Angeles';
 var STAMP_FORMAT   = 'dddd, mm/dd/yyyy, h:mm AM/PM';
@@ -169,19 +169,30 @@ function appendRow(row) {
 }
 
 function notify(to, name, email, college, topic, message) {
-  var subject = '[Convenings] ' + topic + ' \u2014 ' + name + (college ? ', ' + college : '');
+
+  // Name and college stay in the subject so a stack of inquiries is
+  // scannable and searchable from the inbox list without opening each one.
+  var subject = 'Website Inquiry: ' + topic + ' \u2014 ' + name
+              + (college ? ', ' + college : '');
+
+  // College is optional on the form, so the sentence has to work without it.
+  var origin = college
+    ? "They're from " + college + ' and chose "' + topic + '" from the topic dropdown.'
+    : 'They chose "' + topic + '" from the topic dropdown, and did not list a college.';
 
   var body =
-    'A new inquiry came in through the convenings hub contact form.\n\n' +
-    'From:     ' + name + '\n' +
-    'Email:    ' + email + '\n' +
-    'College:  ' + (college || '(not given)') + '\n' +
-    'Topic:    ' + topic + '\n\n' +
-    '------------------------------------------------------------\n' +
-    message + '\n' +
-    '------------------------------------------------------------\n\n' +
-    'Reply to this email to respond directly to the sender.\n' +
-    'Every submission is also recorded in the response sheet.';
+    'A new inquiry came in through the convenings hub contact form from '
+      + name + ', and you can reach them at ' + email + '. ' + origin + '\n\n' +
+
+    // Message sits in its own block rather than inline, so a long or
+    // multi-paragraph inquiry stays readable.
+    'They write:\n\n' +
+    '"' + message + '"\n\n' +
+
+    // Everything above gets quoted back to the sender when you hit Reply,
+    // so keep internal notes out of the body entirely.
+    'You can reply to this email directly \u2014 responding in this thread goes '
+      + 'straight to the sender.';
 
   // Single recipient — no CC. Each inquiry goes only to the person who handles it.
   MailApp.sendEmail(to, subject, body, { replyTo: email, name: 'LA-25 Convenings' });
