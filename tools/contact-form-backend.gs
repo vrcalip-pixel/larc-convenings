@@ -39,9 +39,10 @@
 
 // ------------------------------------------------------------------ CONFIG
 
-var SCRIPT_VERSION = '3.0-split-canvas';  // shown by doGet — proves which code is deployed
+var SCRIPT_VERSION = '3.1-stamp-fix';    // shown by doGet — proves which code is deployed
 var SHEET_NAME     = 'Responses';
 var TIMEZONE       = 'America/Los_Angeles';
+var STAMP_FORMAT   = 'dddd, mm/dd/yyyy, h:mm AM/PM';
 
 var TEAM = {
   faculty: 'vcalip@lbcc.edu',      // Vincent Calip   — Faculty Lead
@@ -64,7 +65,7 @@ var ROUTING = {
 // contact.html have drifted apart. Ruth is the designated front door.
 var FALLBACK = TEAM.manager;
 
-var HEADERS = ['Timestamp (Pacific)', 'Name', 'Email', 'College', 'Topic',
+var HEADERS = ['Date & Time Received', 'Name', 'Email', 'College', 'Topic',
                'Message', 'Routed to', 'Source page'];
 
 // ----------------------------------------------------------------- HANDLERS
@@ -137,7 +138,7 @@ function ensureSheet() {
          .setBackground('#003366')
          .setFontColor('#FFFFFF');
     sheet.setFrozenRows(1);
-    sheet.getRange('A2:A').setNumberFormat('dddd, mm/dd/yyyy, h:mm AM/PM');
+    sheet.getRange('A2:A').setNumberFormat(STAMP_FORMAT);
     sheet.setColumnWidth(1, 240);   // Timestamp
     sheet.setColumnWidth(6, 420);   // Message
   }
@@ -153,7 +154,14 @@ function appendRow(row) {
   var lock = LockService.getScriptLock();
   lock.waitLock(20000);
   try {
-    ensureSheet().appendRow(row);
+    var sheet = ensureSheet();
+    sheet.appendRow(row);
+
+    // Format the timestamp cell we just wrote. Column-level number formats
+    // are NOT reliably inherited by rows added via appendRow(), so the
+    // format has to be applied to the new cell directly.
+    sheet.getRange(sheet.getLastRow(), 1).setNumberFormat(STAMP_FORMAT);
+
     SpreadsheetApp.flush();
   } finally {
     lock.releaseLock();
@@ -245,7 +253,7 @@ function formatTimestamps() {
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) throw new Error('No "' + SHEET_NAME + '" tab found.');
 
-  sheet.getRange('A2:A').setNumberFormat('dddd, mm/dd/yyyy, h:mm AM/PM');
+  sheet.getRange('A2:A').setNumberFormat(STAMP_FORMAT);
   sheet.setColumnWidth(1, 240);
   sheet.getRange('A1').setValue(HEADERS[0]).setNumberFormat('@');
 
